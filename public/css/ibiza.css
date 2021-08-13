@@ -1,0 +1,470 @@
+.ibiza_page .order_details_titles, .ibiza_page .order_lists {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.ibiza_page .right_img img, .ibiza_page .left_img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.ibiza_page .images_jet {
+  flex: 0 0 44%;
+  max-width: 44%;
+  padding: 0 10px;
+  position: relative;
+  align-self: flex-start;
+}
+.ibiza_page .images_jet .banner_inner {
+  position: relative;
+}
+.ibiza_page .jet_block {
+  display: flex;
+  margin: 170px 0 153px;
+  justify-content: space-between;
+}
+.ibiza_page .jet_block .inner_description {
+  max-width: 480px;
+  margin-top: 30px;
+}
+.ibiza_page .page_title {
+  width: auto;
+}
+.ibiza_page .large_img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ibiza_page .small_img {
+  position: absolute;
+  width: 28.5714285714%;
+  height: auto;
+  left: -12.2857142857%;
+  bottom: -70px;
+}
+.ibiza_page .block_story {
+  margin: 200px 0 33px;
+}
+.ibiza_page .inner_story {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0 -15px;
+}
+.ibiza_page .story_info {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.ibiza_page .story_info .page_title {
+  margin-bottom: 30px;
+}
+.ibiza_page .story_info .inner_description {
+  max-width: 500px;
+}
+.ibiza_page .story_img {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.ibiza_page .story_img img {
+  width: 100%;
+}
+.ibiza_page .story_img .inner_description {
+  color: #9A9A9A;
+  margin-top: 5px;
+}
+.ibiza_page .images_block {
+  display: flex;
+  justify-content: space-between;
+}
+.ibiza_page .left_img {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 17%;
+}
+.ibiza_page .left_img:before {
+  display: block;
+  content: "";
+  padding-bottom: 69%;
+}
+.ibiza_page .left_img img {
+  object-fit: cover;
+}
+.ibiza_page .right_img {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 30%;
+}
+.ibiza_page .right_img:before {
+  display: block;
+  content: "";
+  padding-bottom: 69%;
+}
+.ibiza_page .right_img img {
+  object-fit: cover;
+}
+.ibiza_page .page_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 200px -15px 94px;
+}
+.ibiza_page .story_info {
+  margin-left: auto;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.ibiza_page .ibiza_slider {
+  min-width: 50vw;
+  display: block;
+  width: 50vw;
+  margin-bottom: 0;
+}
+.ibiza_page .ibiza_slider .images_slider, .ibiza_page .ibiza_slider .slider_jets .images_slider {
+  margin: 0 0 90px;
+}
+.ibiza_page .ibiza_slider .images_slider .slick-next, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-next {
+  left: 75px;
+}
+.ibiza_page .ibiza_slider .images_slider .slick-next:before, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-next:before {
+  font-size: 1.3rem;
+}
+.ibiza_page .ibiza_slider .images_slider .slick-prev, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-prev {
+  left: 0;
+}
+.ibiza_page .ibiza_slider .images_slider .slick-arrow, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-arrow {
+  top: auto;
+  bottom: -65px;
+  width: 40px;
+  height: 40px;
+}
+.ibiza_page .ibiza_slider .images_slider .slick-arrow:before, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-arrow:before {
+  font-size: 1.3rem;
+}
+.ibiza_page .slider_right {
+  display: flex;
+  margin-top: 150px;
+}
+.ibiza_page .slider_right .story_info {
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+}
+.ibiza_page .image_block {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  justify-content: end;
+}
+.ibiza_page .image_block img {
+  min-width: 50vw;
+  display: block;
+  width: 50vw;
+}
+.ibiza_page .block_texts {
+  position: relative;
+  margin-top: 200px;
+}
+.ibiza_page .block_texts:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 100%;
+}
+.ibiza_page .block_texts img {
+  width: 100%;
+}
+.ibiza_page .block_texts .jet_text {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  max-width: 520px;
+  color: #ffffff;
+  padding: 40px;
+}
+.ibiza_page .order_table {
+  padding: 100px 40px 60px;
+  background: #F5F5F4;
+}
+.ibiza_page .order_table .inner_description {
+  max-width: 700px;
+}
+.ibiza_page .order_table .page_title {
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+.ibiza_page .order_history_block {
+  margin-top: 60px;
+}
+.ibiza_page .order_details_titles {
+  display: flex;
+  padding: 18px 0;
+  justify-content: space-between;
+  margin: 0;
+  border-bottom: 1px solid #CBCBCB;
+}
+.ibiza_page .order_details_titles:last-child {
+  border-bottom: none;
+}
+.ibiza_page .order_details_titles .order_to {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_details_titles .order_aircraft {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_details_titles .order_seats {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+.ibiza_page .order_details_titles .order_price {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_details_titles .order_from {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_details_titles li {
+  line-height: 1.2em;
+  font-size: 20px;
+  color: #000000;
+}
+.ibiza_page .order_drop_row {
+  border-bottom: 1px solid #CBCBCB;
+}
+.ibiza_page .order_drop_row:last-child {
+  border-bottom: none;
+}
+.ibiza_page .order_drop_row ul {
+  display: flex;
+  padding: 18px 0;
+  justify-content: space-between;
+}
+.ibiza_page .order_drop_row ul .order_to {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_drop_row ul .order_aircraft {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_drop_row ul .order_seats {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+.ibiza_page .order_drop_row ul .order_price {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_drop_row ul .order_from {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+.ibiza_page .order_drop_row ul li {
+  display: inline-block;
+  flex: 1;
+  line-height: 1.2em;
+  font-size: 18px;
+  color: #000000;
+  font-family: "sans-regular";
+}
+.ibiza_page .order_drop_row ul li a:before {
+  content: attr(data-title_closed);
+  display: block;
+}
+@media screen and (max-width: 1199px) {
+  .ibiza_page .order_details_titles li {
+    font-size: 16px;
+  }
+  .ibiza_page .order_drop_row ul li {
+    font-size: 15px;
+  }
+  .ibiza_page .slider_right {
+    margin-top: 100px;
+  }
+  .ibiza_page .block_texts {
+    margin-top: 80px;
+  }
+  .ibiza_page .jet_block {
+    margin: 20px 0 90px;
+  }
+  .ibiza_page .jet_block .inner_description {
+    max-width: 440px;
+  }
+  .ibiza_page .page_row {
+    margin: 100px -15px 60px;
+  }
+  .ibiza_page .block_story {
+    margin: 100px 0 33px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .ibiza_page .order_history_block {
+    margin-top: 20px;
+  }
+  .ibiza_page .order_table {
+    padding: 50px 0 25px;
+  }
+  .ibiza_page .order_table .page_title {
+    margin-bottom: 15px;
+  }
+  .ibiza_page .ibiza_slider {
+    width: 100%;
+    min-width: 100%;
+  }
+  .ibiza_page .ibiza_slider .images_slider, .ibiza_page .ibiza_slider .slider_jets .images_slider {
+    margin: 0 0 55px;
+  }
+  .ibiza_page .ibiza_slider .images_slider .slick-arrow, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-arrow {
+    top: auto;
+    bottom: -45px;
+    width: 35px;
+    height: 35px;
+  }
+  .ibiza_page .ibiza_slider .images_slider .slick-arrow:before, .ibiza_page .ibiza_slider .slider_jets .images_slider .slick-arrow:before {
+    font-size: 1rem;
+  }
+  .ibiza_page .slider_right {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .ibiza_page .story_info .inner_description {
+    max-width: 100%;
+  }
+  .ibiza_page .block_texts {
+    margin-top: 20px;
+  }
+  .ibiza_page .block_texts .jet_text {
+    padding: 15px;
+  }
+  .ibiza_page .page_row {
+    margin: 20px 0 20px;
+  }
+  .ibiza_page .image_block {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .ibiza_page .image_block img {
+    width: 100%;
+  }
+  .ibiza_page .block_story {
+    margin: 0 0 33px;
+  }
+  .ibiza_page .inner_story {
+    flex-direction: column;
+    margin: 0;
+  }
+  .ibiza_page .story_info,
+.ibiza_page .story_img {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .ibiza_page .story_info .page_title,
+.ibiza_page .story_img .page_title {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 959px) {
+  .ibiza_page .jet_block .inner_description {
+    max-width: 280px;
+  }
+  .ibiza_page .jet_block {
+    flex-direction: column;
+  }
+  .ibiza_page .jet_block .inner_description {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+  .ibiza_page .images_jet {
+    flex: 0 0 76%;
+    max-width: 76%;
+    align-self: center;
+    padding: 20px 10px 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .ibiza_page .order_table {
+    padding: 15px 0 0;
+  }
+  .ibiza_page .order_details_titles {
+    display: none;
+  }
+  .ibiza_page .order_drop_row ul {
+    flex-direction: column;
+  }
+  .ibiza_page .order_drop_row ul li {
+    font-size: 140%;
+    width: 100%;
+    max-width: 100% !important;
+    display: flex;
+    text-align: center;
+    margin: 0 0 10px;
+    justify-content: space-between;
+    white-space: nowrap;
+    align-items: center;
+    line-height: 1.5em;
+  }
+  .ibiza_page .order_drop_row ul li:before {
+    display: block;
+    content: attr(data-title);
+    color: #000000;
+    text-decoration: none;
+  }
+  .ibiza_page .left_img,
+.ibiza_page .right_img {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+@media screen and (max-width: 399px) {
+  .ibiza_page .small_img {
+    bottom: -30px;
+  }
+  .ibiza_page .jet_block {
+    margin: 20px 0 60px;
+  }
+}
+
+.web .ibiza_page .block_texts a, .ibiza_page .block_texts .web a {
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.touch .ibiza_page .block_texts a, .ibiza_page .block_texts .touch a {
+  -o-transition: opacity 0.15s;
+  -ms-transition: opacity 0.15s;
+  -moz-transition: opacity 0.15s;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.web .ibiza_page .block_texts a:hover, .ibiza_page .block_texts .web a:hover {
+  opacity: 0.7;
+}
+
+.touch .ibiza_page .block_texts a:active, .ibiza_page .block_texts .touch a:active {
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=ibiza.css.map */

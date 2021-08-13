@@ -1,0 +1,171 @@
+.top_jets_page .inner_list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.top_jets_page .inner_list li {
+  margin-bottom: 70px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  opacity: 0;
+}
+.top_jets_page .inner_list li:last-child {
+  margin-bottom: 0;
+}
+.top_jets_page .inner_list li:last-child .our_block:before {
+  display: none;
+}
+.top_jets_page .inner_list li .our_block:before {
+  position: absolute;
+  left: 0;
+  right: -20px;
+  bottom: 0;
+  margin-bottom: -30px;
+  content: "";
+  height: 1px;
+  background: #CBCBCB;
+  margin-left: auto;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.top_jets_page .our_blocks {
+  margin-top: 170px;
+}
+.top_jets_page .our_info {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.top_jets_page .our_info .section_subtitle {
+  margin-bottom: 50px;
+  display: block;
+}
+.top_jets_page .our_info .inner_description {
+  margin-top: 30px;
+}
+.top_jets_page .jets_list {
+  margin-top: 73px;
+}
+.top_jets_page .jet_text {
+  margin-bottom: 18px;
+  color: #9A9A9A;
+  width: 100%;
+}
+.top_jets_page .jet_text span {
+  padding-left: 23px;
+  color: #000000;
+}
+.top_jets_page .img_block_our {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.top_jets_page .img_block_our a {
+  display: block;
+}
+.top_jets_page .img_block_our img {
+  width: 100%;
+  object-fit: cover;
+}
+.top_jets_page .section_subtitle,
+.top_jets_page .page_title {
+  width: 100%;
+}
+.top_jets_page .our_block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  position: relative;
+}
+@media screen and (max-width: 1199px) {
+  .top_jets_page .our_blocks {
+    margin-top: 50px;
+  }
+  .top_jets_page .our_info .section_subtitle {
+    margin-bottom: 20px;
+  }
+  .top_jets_page .our_info .inner_description {
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .top_jets_page .jet_text {
+    margin-bottom: 7px;
+  }
+  .top_jets_page .jets_list,
+.top_jets_page .our_blocks {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 719px) {
+  .top_jets_page .our_block {
+    flex-direction: column;
+    margin: 0 5px;
+  }
+  .top_jets_page .our_block:before {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    right: 0 !important;
+  }
+  .top_jets_page .our_info {
+    margin-top: 20px;
+  }
+  .top_jets_page .our_info,
+.top_jets_page .img_block_our {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.web .top_jets_page .img_block_our a, .top_jets_page .img_block_our .web a {
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.web .top_jets_page .our_info .section_subtitle, .top_jets_page .our_info .web .section_subtitle {
+  -o-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.touch .top_jets_page .img_block_our a, .top_jets_page .img_block_our .touch a {
+  -o-transition: opacity 0.15s;
+  -ms-transition: opacity 0.15s;
+  -moz-transition: opacity 0.15s;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.touch .top_jets_page .our_info .section_subtitle, .top_jets_page .our_info .touch .section_subtitle {
+  -o-transition: color 0.15s;
+  -ms-transition: color 0.15s;
+  -moz-transition: color 0.15s;
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
+}
+
+.web .top_jets_page .our_info .section_subtitle:hover, .top_jets_page .our_info .web .section_subtitle:hover {
+  color: rgba(230, 172, 23, 0.7);
+}
+.web .top_jets_page .img_block_our a:hover, .top_jets_page .img_block_our .web a:hover {
+  opacity: 0.7;
+}
+
+.touch .top_jets_page .our_info .section_subtitle:active, .top_jets_page .our_info .touch .section_subtitle:active {
+  color: rgba(230, 172, 23, 0.7);
+}
+.touch .top_jets_page .img_block_our a:active, .top_jets_page .img_block_our .touch a:active {
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=top_jets.css.map */

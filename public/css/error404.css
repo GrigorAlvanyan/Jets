@@ -1,0 +1,153 @@
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.error_section {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error_section .block_title {
+  font-size: 320%;
+  line-height: 43px;
+  font-family: "sans-medium";
+  color: inherit;
+}
+.error_section .block_description {
+  font-size: 160%;
+  color: inherit;
+  line-height: 21px;
+  margin-top: 11px;
+}
+.error_section .error_block {
+  text-align: center;
+  max-width: 600px;
+  position: relative;
+  z-index: 10;
+}
+.error_section .image_block {
+  position: absolute;
+  padding-bottom: 70px;
+  padding-right: 10px;
+  z-index: 1;
+}
+.error_section .image_block img {
+  width: 100%;
+  height: auto;
+}
+.error_section .page_links {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error_section .prev_page {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #E6AC17;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 140%;
+  line-height: 19px;
+}
+.error_section .prev_page::before {
+  display: block;
+}
+.error_section .prev_page:hover {
+  opacity: 0.7;
+}
+.error_section .prev_page:hover:before {
+  transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.error_section .back_home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-size: 130%;
+  line-height: 16px;
+  width: 230px;
+  margin-left: 30px;
+  color: inherit;
+  height: 61px;
+  background: #E6AC17;
+}
+.error_section .back_home:hover {
+  background: rgba(230, 172, 23, 0.7);
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .error_section .block_title {
+    font-size: 280%;
+    line-height: 35px;
+  }
+  .error_section .block_description {
+    font-size: 140%;
+    line-height: 19px;
+  }
+  .error_section .error_block {
+    max-width: 460px;
+  }
+  .error_section .prev_page {
+    height: 50px;
+    width: 50px;
+  }
+  .error_section .back_home {
+    height: 50px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .error_section .block_title {
+    font-size: 240%;
+    line-height: 30px;
+  }
+  .error_section .block_description {
+    font-size: 120%;
+    line-height: 17px;
+  }
+  .error_section .prev_page {
+    height: 40px;
+    width: 40px;
+  }
+  .error_section .back_home {
+    height: 40px;
+    width: 170px;
+    margin-left: 20px;
+  }
+  .error_section .page_links {
+    margin-top: 20px;
+  }
+}
+
+.error_section .prev_page {
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.error_section .back_home {
+  -o-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.error_section .prev_page:hover {
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=error404.css.map */

@@ -1,0 +1,157 @@
+.our_company .list_partners {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.our_company .block_story {
+  margin: 164px 0;
+}
+.our_company .page_title {
+  width: 100%;
+}
+.our_company .premium_block .inner_description {
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+.our_company .partners_block {
+  margin-bottom: 160px;
+}
+.our_company .list_partners {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px -15px 0;
+}
+.our_company .list_partners li {
+  padding: 0 15px;
+  margin-bottom: 20px;
+  max-width: 33.333%;
+  flex: 0 0 33.333%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  opacity: 0;
+}
+.our_company .list_partners li .img_partners {
+  max-width: 380px;
+  max-height: 190px;
+  min-height: 190px;
+  height: 100%;
+  background: #F5F5F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.our_company .list_partners li img {
+  display: block;
+  max-width: 295px;
+  max-height: 173px;
+}
+.our_company .premium_img {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0 -15px 160px;
+}
+.our_company .premium_img img {
+  width: 100%;
+  padding: 0 15px;
+}
+.our_company .jets_main {
+  margin-bottom: 160px;
+}
+.our_company .jets_main .inner_description {
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+.our_company .jets_main img {
+  width: 100%;
+}
+.our_company .inner_story {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0 -15px;
+}
+.our_company .page_title {
+  padding: 0;
+  margin: 0 0 40px;
+}
+.our_company .story_info {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.our_company .story_img {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+.our_company .story_img img {
+  width: 100%;
+}
+@media screen and (max-width: 1199px) {
+  .our_company .block_story {
+    margin: 20px 0;
+  }
+  .our_company .comfort_block {
+    margin-bottom: 20px;
+  }
+  .our_company .partners_block {
+    margin-bottom: 20px;
+  }
+  .our_company .page_title {
+    margin: 0 0 15px;
+  }
+  .our_company .premium_block .inner_description {
+    margin-bottom: 15px;
+  }
+  .our_company .jets_main {
+    margin-bottom: 20px;
+  }
+  .our_company .jets_main .inner_description {
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+  .our_company .premium_img {
+    margin: 0 -15px 20px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .our_company .premium_img {
+    margin: 0 -3px 20px;
+  }
+  .our_company .premium_img img {
+    width: 100%;
+    padding: 0 3px;
+  }
+  .our_company .list_partners li {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .our_company .list_partners li .img_partners {
+    max-width: 100%;
+  }
+  .our_company .inner_story {
+    flex-direction: column;
+    margin: 0;
+  }
+  .our_company .story_info,
+.our_company .story_img {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 639px) {
+  .our_company .list_partners li {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=our_company.css.map */
