@@ -1,18 +1,12 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <title>Home Page</title>
+@section('css')
     <link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
-    @include('templates/favicons')
+@endsection
+@section('js')
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/daterangepicker.min.js"></script>
@@ -22,14 +16,14 @@
     <script src="js/jquery.timepicker.js"></script>
     <script src="js/jquery.form-validator.js"></script>
     <script src="js/slick.js"></script>
-</head>
-<body>
+@endsection
 @include('templates/header')
 <div class="content">
     @include('main_slider')
     @php($block1 = $homeBlocks->where('slug', 'block_1')->first())
     @php($block2 = $homeBlocks->where('slug', 'block_2')->first())
     @php($block3 = $homeBlocks->where('slug', 'block_3')->first())
+    @php($block4 = $homeBlocks->where('slug', 'block_4')->first())
     @php($sliderDestinations = $destinations->where('is_top', 0))
     @php($topDestinations = $destinations->where('is_top', 1))
     <div class="contents_scroll">
@@ -131,15 +125,14 @@
             </div>
         </div>
         <div class="custom_container">
+            @if(isset($block4))
             <div class="head_block animation_block fade_animation">
                 <div class="banner_inner">
-                    <h1 class="page_title">COMFORT ZONE</h1>
-                    <div class="page_description">It is a long established fact that a reader will be distracted by the
-                        readable
-                        content of a page when looking at its layout.
-                    </div>
+                    <h1 class="page_title">{{ $block4->title }}</h1>
+                    <div class="page_description">{!! $block4->summary !!}</div>
                 </div>
             </div>
+            @endif
             <div class="top_slider">
                 <div class="inner_top">
                     <div class="top_list animation_block left_animation">
@@ -210,8 +203,11 @@
 
     </div>
 </div>
+@section('body-js')
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/index.js')}}"></script>
+@endsection
 @include('templates/footer')
-<script src="js/main.js"></script>
-<script src="js/index.js"></script>
-</body>
-</html>
+
+
+
