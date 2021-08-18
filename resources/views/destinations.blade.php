@@ -75,120 +75,21 @@
                 </div>
                 <div class="destinations_inner">
                     <ul class="city_list">
+                        @forelse($destinations as $destination)
                         <li>
                             <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 14.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to UAE</a>
+                                <a href="" class="img_block"><img src="images/image {{$destination->image_id}}.png" title="" alt=""/></a>
+                                <a href="" class="destinations_name">{{$destination->title }}</a>
                             </div>
                         </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 15.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Italy</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 16.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Greece</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 17.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to France</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 18.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to USA</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 19.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Spain</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 22.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Germany</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 14.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Switzerland</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 14.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to UAE</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 15.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Italy</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 16.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Greece</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 17.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to France</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 18.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to USA</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 19.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Spain</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 22.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Germany</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 14.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Switzerland</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 16.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Greece</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image 17.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to France</a>
-                            </div>
-                        </li>
+                        @empty
+                        @endforelse
                     </ul>
-                    <div class="paging">
+
+                        <div class="paging">
                         <ul>
                             <li><a href="" class="prev_page inactive">Back</a></li>
-                            <li><a href="" class="current_page">1</a></li>
+                            <li><a href="total" class="current_page">1</a></li>
                             <li><a href="">2</a></li>
                             <li><a href="">3</a></li>
                             <li>...</li>

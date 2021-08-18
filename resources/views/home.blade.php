@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 @endsection
 @section('js')
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/daterangepicker.min.js"></script>
-    <script src="js/slick.js"></script>
-    <script src="js/jquery.fancybox.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    <script src="js/jquery.timepicker.js"></script>
-    <script src="js/jquery.form-validator.js"></script>
-    <script src="js/slick.js"></script>
+    <script src="{{asset('js/jquery-3.3.1.js') }}"></script>
+    <script src="{{asset('js/moment.min.js') }}"></script>
+    <script src="{{asset('js/daterangepicker.min.js') }}"></script>
+    <script src="{{asset('js/slick.js') }}"></script>
+    <script src="{{asset('js/jquery.fancybox.js') }}"></script>
+    <script src="{{asset('js/jquery.timepicker.min.js') }}"></script>
+    <script src="{{asset('js/jquery.timepicker.js') }}"></script>
+    <script src="{{asset('js/jquery.form-validator.js') }}"></script>
+    <script src="{{asset('js/slick.js') }}"></script>
 @endsection
 @include('templates/header')
 <div class="content">

@@ -12,7 +12,8 @@ class DestinationsController extends Controller
     public function index(Request $request)
     {
         $continent = $request->continent;
-        $continent = $request->country;
+        $country = $request->country;
+
 
         $menus = Menu::with(['menuLinks' => function ($q) {
             $q->with('childrens');
@@ -30,7 +31,12 @@ class DestinationsController extends Controller
 
         $countries = $countries->get();
 
-        //todo get destionations by country id
+        if (empty($continent)) {
+            $destinations = DB::table('destinations')->where('is_top', '=', 4)->paginate(6);
+        } else {
+            $destinations = DB::table('destinations')->where('country_id', '=', $continent)->paginate(6);
+        }
+
 
 //        $continents = DB::table('continents')
 //            ->select([
@@ -47,6 +53,7 @@ class DestinationsController extends Controller
             'block' => $destBlock,
             'continents' => $continents,
             'countries' => $countries,
+            'destinations' => $destinations
         ]);
     }
 }
