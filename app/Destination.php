@@ -10,4 +10,9 @@ class Destination extends Model
     {
         return $this->belongsToMany(Jet::class, 'destination_jets');
     }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

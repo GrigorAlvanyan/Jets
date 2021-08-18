@@ -26,9 +26,4 @@ class HomeController extends Controller
        return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations'));
    }
 
-    public function requestQuotes(Request $request)
-    {
-        dd($request->all());
-    }
-
 }
