@@ -78,8 +78,8 @@
                         @forelse($destinations as $destination)
                         <li>
                             <div class="city_inner">
-                                <a href="" class="img_block"><img src="images/image {{$destination->image_id}}.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">{{$destination->title }}</a>
+                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="img_block"><img src="images/image {{$destination->image_id}}.png" title="" alt=""/></a>
+                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="destinations_name">{{$destination->title }}</a>
                             </div>
                         </li>
                         @empty

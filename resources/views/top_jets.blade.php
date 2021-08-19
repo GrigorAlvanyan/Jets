@@ -52,7 +52,6 @@
                         </li>
                             @empty
                             @endforelse
-
                     </ul>
                 </div>
 

@@ -141,42 +141,15 @@
                 <div class="custom_container">
                     <div class="page_title">TRENDING DESTINATIONS</div>
                     <ul class="city_list">
+                        @forelse($destinations as $destination)
                         <li>
                             <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 15.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Italy</a>
+                                <a href="" class="img_block"><img src="/images/image {{$destination->image_id}}.png" title="" alt=""/></a>
+                                <a href="" class="destinations_name">{{$destination->title}}</a>
                             </div>
                         </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 16.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Greece</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 17.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to France</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 18.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to USA</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 19.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Spain</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image 22.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">Private jet to Germany</a>
-                            </div>
-                        </li>
+                        @empty
+                        @endforelse
                     </ul>
                     <a href="" class="btn_view">BOOK A JET</a>
                 </div>

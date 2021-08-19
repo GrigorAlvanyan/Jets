@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Continent;
+use App\Destination;
 use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,21 +33,12 @@ class DestinationsController extends Controller
         $countries = $countries->get();
 
         if (empty($continent)) {
-            $destinations = DB::table('destinations')->where('is_top', '=', 4)->paginate(6);
+            $destinations = DB::table('destinations')->where('image_id', '>', 0)->paginate(15);
         } else {
-            $destinations = DB::table('destinations')->where('country_id', '=', $continent)->paginate(6);
+            $destinations = DB::table('destinations')->where(['continent_id' => $continent, 'country_id' => $country])->paginate(6);
         }
 
 
-//        $continents = DB::table('continents')
-//            ->select([
-//                'continents.*', 'continents.id as cont_id',
-//                'countries.*', 'countries.id as country_id',
-//                'countries.title', 'countries.title as country_title',
-//                'continents.title', 'continents.title as cont_title',
-//            ])
-//            ->join('countries', 'continents.id', 'countries.continent_id')
-//            ->get();
 
         return view('destinations', [
             'menus' => $menus,
@@ -56,4 +48,18 @@ class DestinationsController extends Controller
             'destinations' => $destinations
         ]);
     }
+
+    public function show($slug)
+    {
+        $menus = Menu::with(['menuLinks' => function ($q) {
+            $q->with('childrens');
+        }])->where('title', 'header')->orWhere('title', 'footer')->get();
+
+        $destination = DB::table('destinations')->where('slug', '=', $slug)->first();
+        $destinationBlocks = Destination::with('destinationBlocks')->where()
+
+
+        return view('inner_destinations', compact('destination', 'menus'));
+    }
+
 }

@@ -18,4 +18,7 @@ Route::get('jets', 'JetsController@index');
 Route::get('jets/{slug}', 'JetsController@show')->name('show_jet');
 
 Route::get('destinations', 'DestinationsController@index');
+Route::get('destinations/{slug?}', 'DestinationsController@show')->name('show_destination');
+
+Route::get('our_company', 'OurCompanyController@index');
 

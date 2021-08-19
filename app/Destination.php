@@ -15,4 +15,11 @@ class Destination extends Model
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function destinationBlocks()
+    {
+        return $this->hasMany(DestinationBlock::class);
+    }
+
+
 }

@@ -8,6 +8,8 @@ use App\Jet;
 use App\Menu;
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class JetsController extends Controller
 {
@@ -30,6 +32,7 @@ class JetsController extends Controller
 
         $topJet = Jet::with('cabin')->where('slug', $slug)->firstOrFail();
 
-        return view('inner_jets', compact('topJet', 'menus'));
+        $destinations = DB::table('destinations')->where('image_id', '>', 0)->get();
+        return view('inner_jets', compact('topJet', 'menus', 'destinations'));
     }
 }
