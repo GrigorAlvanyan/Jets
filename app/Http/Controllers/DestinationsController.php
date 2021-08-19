@@ -56,7 +56,7 @@ class DestinationsController extends Controller
         }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
         $destination = DB::table('destinations')->where('slug', '=', $slug)->first();
-        $destinationBlocks = Destination::with('destinationBlocks')->where()
+//        $destinationBlocks = Destination::with('destinationBlocks')->where()
 
 
         return view('inner_destinations', compact('destination', 'menus'));
