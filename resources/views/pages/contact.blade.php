@@ -13,7 +13,7 @@
     <script src="{{asset('js/jquery.nice-select.js')}}"></script>
     <script src="{{asset('https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAJIk0uOuhLnht2g6fYVM_L-tlrKKrxELE')}}"></script>
 @endsection
-@include('templates/header')
+@include('../templates/header')
 <div class="content">
     <div class="contents_scroll">
         <div class="contact_page">
@@ -21,7 +21,7 @@
                 <div class="page_row">
                     <div class="contact_info animation_block left_animation">
                         <div class="banner_inner">
-                            <h1 class="main_title">Contact</h1>
+                            <h1 class="main_title">{{$page->title}}</h1>
                             <ul class="contact_list">
                                 <li>
                                     <div class="section_subtitle">Address</div>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="contact_form animation_block right_animation">
                         <div class="banner_inner">
-                            <div class="inner_description">Message a Private Aviation Advisor.</div>
+                            <div class="inner_description">{{$page->summary}}</div>
                             <form>
                                 <div class="inner_form">
                                     <div class="field_block standard_input">
@@ -85,4 +85,4 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/contact.js')}}"></script>
 @endsection
-@include('templates/footer')
+@include('../templates/footer')

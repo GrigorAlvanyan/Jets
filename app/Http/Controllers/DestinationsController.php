@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Continent;
 use App\Destination;
+use App\DestinationBlock;
 use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,15 +33,29 @@ class DestinationsController extends Controller
 
         $countries = $countries->get();
 
+
+        $destinations = DB::table('destinations');
+
         if (empty($continent)) {
-            $destinations = DB::table('destinations')->where('image_id', '>', 0)->paginate(15);
+            $destinations = $destinations->where('image_id', '>' , 0);
         } else {
-            $destinations = DB::table('destinations')->where(['continent_id' => $continent, 'country_id' => $country])->paginate(6);
+            if (empty($country)) {
+                $destinations = $destinations->where('continent_id', $continent);
+            } else {
+                $destinations = $destinations->where(['continent_id' => $continent, 'country_id' => $country]);
+            }
         }
+        $destinations = $destinations->paginate(9);
+
+
+        //        dd($destinations);
 
 
 
-        return view('destinations', [
+//        $destinations = DB::table('destinations')->where(['continent_id' => $continent, 'country_id' => $country])->paginate(6);
+
+
+        return view('pages/destinations', [
             'menus' => $menus,
             'block' => $destBlock,
             'continents' => $continents,
@@ -55,11 +70,16 @@ class DestinationsController extends Controller
             $q->with('childrens');
         }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
-        $destination = DB::table('destinations')->where('slug', '=', $slug)->first();
-//        $destinationBlocks = Destination::with('destinationBlocks')->where()
+
+        $dest = DB::table('destinations')->where('slug', $slug)->first();
+
+        $destination = Destination::with('destinationBlocks')->where('id', $dest->id)->firstOrFail();
+        $destinationBlock = $destination->destinationBlocks;
+
+        $sliderDestinations = Destination::get();//todo
 
 
-        return view('inner_destinations', compact('destination', 'menus'));
+        return view('pages/inner_destinations', compact('destinationBlock', 'sliderDestinations','menus'));
     }
 
 }

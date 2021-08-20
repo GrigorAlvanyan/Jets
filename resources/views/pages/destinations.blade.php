@@ -18,18 +18,19 @@
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
     <script src="{{asset('js/jquery.nice-select.js')}}"></script>
 @endsection
-@include('templates/header')
+@include('../templates/header')
+
 <div class="content destinations_page">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
             <div class="banner_inner">
                 <div class="main_block">
                     <div class="main_img">
-                        <img src="images/private-jet-costs-1140x600.png" title="" alt=""/>
+                        <img src="../images/private-jet-costs-1140x600.png" title="" alt=""/>
                     </div>
                     <div class="custom_container">
                         <div class="main_info form_blocks">
-                            <div class="main_title">DESTINATIONS</div>
+                            <div class="main_title">aaa</div>
                         </div>
                     </div>
                     @include('form')
@@ -78,7 +79,7 @@
                         @forelse($destinations as $destination)
                         <li>
                             <div class="city_inner">
-                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="img_block"><img src="images/image {{$destination->image_id}}.png" title="" alt=""/></a>
+                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="img_block"><img src="/images/image {{$destination->image_id}}.png" title="" alt=""/></a>
                                 <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="destinations_name">{{$destination->title }}</a>
                             </div>
                         </li>
@@ -117,4 +118,4 @@
         })
     </script>
 @endsection
-@include('templates/footer')
+@include('../templates/footer')

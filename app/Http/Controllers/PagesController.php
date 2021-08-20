@@ -21,6 +21,12 @@ class PagesController extends Controller
                 return $this->whyYourJets($slug);
                 break;
             case 'contact':
+                return $this->contact($slug);
+                break;
+            case 'destinations':
+                return $this->destinations($slug);
+                break;
+            case '':
                 break;
             default:
                 //
@@ -53,7 +59,6 @@ class PagesController extends Controller
 
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
         $pageSections = $page->sections;
-//        dd($pageSections);
 
         $pageBlock1 = Block::where('slug', 'why_your_jets_block1')->first();
         $pageBlock2 = Block::where('slug', 'why_your_jets_block2')->first();
@@ -64,5 +69,36 @@ class PagesController extends Controller
         return view('pages/why_your_jets',
             compact('page', 'pageSections', 'sliderDestinations', 'pageBlock1', 'pageBlock2', 'statistics', 'menus'));
     }
+
+    public function contact($slug)
+    {
+        $menus = Menu::with(['menuLinks' => function ($q) {
+            $q->with('childrens');
+        }])->where('title', 'header')->orWhere('title', 'footer')->get();
+
+        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
+//        $pageSections = $page->sections;
+
+        return view('pages/contact', compact('page', 'menus'));
+
+
+
+    }
+
+
+
+    public function destinations($slug)
+    {
+//        $menus = Menu::with(['menuLinks' => function ($q) {
+//            $q->with('childrens');
+//        }])->where('title', 'header')->orWhere('title', 'footer')->get();
+
+        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
+
+        return view('pages/destinations', compact('page'));
+
+    }
+
+
 
 }

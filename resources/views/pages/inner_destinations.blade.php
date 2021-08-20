@@ -18,7 +18,7 @@
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
     <script src="{{asset('js/jquery.nice-select.js')}}"></script>
 @endsection
-@include('templates/header')
+@include('../templates/header')
 <div class="content ibiza_page">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
@@ -37,118 +37,108 @@
             </div>
         </div>
         <div class="custom_container">
-            <div class="jet_block">
-                <div class="info_jet animation_block left_animation">
-                    <div class="banner_inner">
-                        <h1 class="page_title">Hire a Private Jet to Ibiza</h1>
-                        <div class="inner_description">
-
-                            {{$destination->summary}}
+            @if(isset($destinationBlock) && count($destinationBlock) > 0)
+                @if($section1 = $destinationBlock->where('position', 1)->first())
+                    <div class="jet_block">
+                        <div class="info_jet animation_block left_animation">
+                            <div class="banner_inner">
+                                <h1 class="page_title">{{$section1->title}}</h1>
+                                <div class="inner_description">
+                                    {!! $section1->summary !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="images_jet animation_block right_animation">
+                            <div class="banner_inner">
+                                <img class="large_img" src="/images/ferran-feixas-gCHdv7IE9Gg-unsplash.png" title="" alt=""/>
+                                <img class="small_img" src="/images/david-svihovec-34OyD0zZjao-unsplash 1.png" title="" alt=""/>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="images_jet animation_block right_animation">
-                    <div class="banner_inner">
-                        <img class="large_img" src="/images/ferran-feixas-gCHdv7IE9Gg-unsplash.png" title="" alt=""/>
-                        <img class="small_img" src="/images/david-svihovec-34OyD0zZjao-unsplash 1.png" title="" alt=""/>
+                @endif
+
+            @if($section2 = $destinationBlock->where('position', 2)->first())
+                <div class="block_story">
+                    <div class="inner_story">
+                        <div class="story_info animation_block left_animation">
+                            <div class="banner_inner">
+                                <h1 class="page_title">{{$section2->title}}</h1>
+                                <div class="inner_description">
+                                    {{$section2->summary}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story_img animation_block right_animation">
+                            <div class="banner_inner">
+                                <img src="/images/Zurich-to-Mykonos-Private-Jet-Charter-824x522.png" title="" alt=""/>
+                                <div class="inner_description">{{$section2->body}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="images_block animation_block fade_animation">
+                        <div class="left_img banner_inner"><img src="/images/belinda-fewings-EHPq7LxwFog-unsplash 1.png"
+                                                                alt="" title=""/></div>
+                        <div class="right_img banner_inner"><img src="/images/Ibiza-Habor.png" alt="" title=""/></div>
                     </div>
                 </div>
-            </div>
-            <div class="block_story">
-                <div class="inner_story">
+            @endif
+
+            @if($section3 = $destinationBlock->where('position', 3)->first())
+                <div class="slider_right">
                     <div class="story_info animation_block left_animation">
                         <div class="banner_inner">
-                            <h1 class="page_title">Why Visit Ibiza?</h1>
+                            <h1 class="page_title">{{$section3->title}}</h1>
                             <div class="inner_description">
-                                Ibiza is a small island in Spain located in the Mediterranean Sea. While it started out
-                                as a port town, Ibiza is now known far more for hedonism than hard work. Its natural
-                                beauty, amazing weather and fun attractions have turned Ibiza into a hotspot for
-                                European getaways.
+                                {{$section3->summary}}
                             </div>
                         </div>
                     </div>
-                    <div class="story_img animation_block right_animation">
+                    <div class="ibiza_slider animation_block right_animation">
+                        @if(count($sliderDestinations) > 0)
+                            <div class="images_slider banner_inner">
+                                @foreach($sliderDestinations as $destination)
+                                    <div class="slide_block">
+                                        <div class="slide_inner">
+                                            <img src="/images/matty-adame-nLUb9GThIcg-unsplash.png" alt="" title="{{$destination->title}}"/>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+
+            @if($section4 = $destinationBlock->where('position', 4)->first())
+                <div class="block_texts animation_block fade_animation">
+                    <div class="banner_inner">
+                        <img src="/images/slideshow-1624622648.png" alt="">
+                        <div class="jet_text">
+                            <a href="">{{$section4->title}}</a>
+                            {{$section4->summary}}
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if($section5 = $destinationBlock->where('position', 5)->first())
+                <div class="page_row">
+                    <div class="story_info animation_block left_animation">
                         <div class="banner_inner">
-                            <img src="/images/Zurich-to-Mykonos-Private-Jet-Charter-824x522.png" title="" alt=""/>
-                            <div class="inner_description">Café del Mar</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="images_block animation_block fade_animation">
-                    <div class="left_img banner_inner"><img src="/images/belinda-fewings-EHPq7LxwFog-unsplash 1.png"
-                                                            alt="" title=""/></div>
-                    <div class="right_img banner_inner"><img src="/images/Ibiza-Habor.png" alt="" title=""/></div>
-                </div>
-            </div>
-            <div class="slider_right">
-                <div class="story_info animation_block left_animation">
-                    <div class="banner_inner">
-                        <h1 class="page_title">Why Visit Ibiza?</h1>
-                        <div class="inner_description">
-                            Ibiza is a small island in Spain located in the Mediterranean Sea. While it started out
-                            as a port town, Ibiza is now known far more for hedonism than hard work. Its natural
-                            beauty, amazing weather and fun attractions have turned Ibiza into a hotspot for
-                            European getaways.
-                        </div>
-                    </div>
-                </div>
-                <div class="ibiza_slider animation_block right_animation">
-                    <div class="images_slider banner_inner">
-                        <div class="slide_block">
-                            <div class="slide_inner">
-                                <img src="/images/matty-adame-nLUb9GThIcg-unsplash.png" alt="" title=""/>
-                            </div>
-                        </div>
-                        <div class="slide_block">
-                            <div class="slide_inner">
-                                <img src="/images/martyna-bober-yd1_Tupnls4-unsplash 1.png" alt="" title=""/>
-                            </div>
-                        </div>
-                        <div class="slide_block">
-                            <div class="slide_inner">
-                                <img src="/images/image 22.png" alt="" title=""/>
-                            </div>
-                        </div>
-                        <div class="slide_block">
-                            <div class="slide_inner">
-                                <img src="/images/image 18.png" alt="" title=""/>
+                            <h1 class="page_title">{{$section5->title}}</h1>
+                            <div class="inner_description">
+                                {!! $section5->summary !!}
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="block_texts animation_block fade_animation">
-                <div class="banner_inner">
-                    <img src="/images/slideshow-1624622648.png" alt="">
-                    <div class="jet_text">
-                        <a href="">Cova Santa</a>
-                        July events start from 1 July 2021 and you can expect more to be added in the coming weeks.
+                    <div class="image_block animation_block right_animation">
+                        <img src="/images/The-First-Ever-Private-Jet-Shuttle-Flights-Between-Ibiza-and-Mykonos-1200x900 1.png"
+                             class="banner_inner" alt="" title=""/>
                     </div>
                 </div>
-            </div>
-            <div class="page_row">
-                <div class="story_info animation_block left_animation">
-                    <div class="banner_inner">
-                        <h1 class="page_title">Why Choose YourJets?</h1>
-                        <div class="inner_description">
-                            YourJets has taken what used to be a daunting process of flying and driving to more out of
-                            the way locations and has turned it into a fast and easy process. The YourJets app allows
-                            tourists to think of a travel destination, look it up and book it in a matter of minutes.
-                            <br/>
-                            <br/>
-                            From there all that's required of the traveler is to pack their bags and make their dinner
-                            reservations. YourJets handles the itinerary, travel arrangements and can even provide
-                            transportation to and from the jet. Quick trips in style have never been so easy to make
-                            happen.
-                        </div>
-                    </div>
-                </div>
-                <div class="image_block animation_block right_animation">
-                    <img src="/images/The-First-Ever-Private-Jet-Shuttle-Flights-Between-Ibiza-and-Mykonos-1200x900 1.png"
-                         class="banner_inner" alt="" title=""/>
-                </div>
-            </div>
+                @endif
+            @endif
         </div>
+
         <div class="order_table">
             <div class="custom_container">
                 <div class="animation_block bottom_animation">
@@ -211,4 +201,4 @@
 @section('body-js')
 <script src="{{asset('js/main.js')}}"></script>
 @endsection
-@include('templates/footer')
+@include('../templates/footer')
