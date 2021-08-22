@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Addresses;
 use App\Block;
 use App\Destination;
 use App\Menu;
@@ -78,8 +79,12 @@ class PagesController extends Controller
 
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
 //        $pageSections = $page->sections;
+//
 
-        return view('pages/contact', compact('page', 'menus'));
+
+        $contacts = Addresses::first();
+
+        return view('pages/contact', compact('page', 'contacts','menus'));
 
 
 

@@ -23,18 +23,20 @@
                         <div class="banner_inner">
                             <h1 class="main_title">{{$page->title}}</h1>
                             <ul class="contact_list">
-                                <li>
-                                    <div class="section_subtitle">Address</div>
-                                    <div class="standard_text">Los Angeles, CA 90035 USA</div>
-                                </li>
-                                <li>
-                                    <div class="section_subtitle">Tel</div>
-                                    <a href="tel:+37491599000" class="phone_link standard_text">+ (374) 91599000</a>
-                                </li>
-                                <li>
-                                    <div class="section_subtitle">Email address</div>
-                                    <a href="" class="standard_text">travelerman0770@gmail.com</a>
-                                </li>
+                                @if(!empty($contacts))
+                                    <li>
+                                        <div class="section_subtitle">Address</div>
+                                        <div class="standard_text">{{$contacts->address}}</div>
+                                    </li>
+                                    <li>
+                                        <div class="section_subtitle">Tel</div>
+                                        <a href="{{$contacts->phone}}" class="phone_link standard_text">{{$contacts->phone}}</a>
+                                    </li>
+                                    <li>
+                                        <div class="section_subtitle">Email address</div>
+                                        <a href="{{$contacts->email}}" class="standard_text">{{$contacts->email}}</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -72,11 +74,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="map_block animation_block bottom_animation" data-coords="40.183355, 44.515851">
-                    <div class="banner_inner">
-                        <div id="map-canvas"></div>
+                @if(!empty($contacts))
+                    <div class="map_block animation_block bottom_animation" data-coords="{{$contacts->latitude}}, {{$contacts->longitude}}}}">
+                        <div class="banner_inner">
+                            <div id="map-canvas"></div>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
