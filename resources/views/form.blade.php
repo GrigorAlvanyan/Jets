@@ -1,5 +1,16 @@
 <div class="form_request">
     <div class="custom_container">
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <p><strong>Opps Something went wrong</strong></p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form class="inner_request" method="POST" action="{{route('request_quotes')}}">
             @csrf
             <div class="field_block width_full icon_path1">

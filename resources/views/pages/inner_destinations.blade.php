@@ -139,7 +139,8 @@
             @endif
         </div>
 
-        <div class="order_table">
+        @if(isset($destJets) && count($destJets) > 0)
+            <div class="order_table">
             <div class="custom_container">
                 <div class="animation_block bottom_animation">
                     <div class="banner_inner">
@@ -156,46 +157,23 @@
                         <li class="order_price">ESTIMATED PRICE</li>
                     </ul>
                     <ul class="order_lists banner_inner">
-                        <li class="order_drop_row">
-                            <ul>
-                                <li data-title="FROM" class="order_from">London</li>
-                                <li data-title="TO" class="order_to">Ibiza</li>
-                                <li data-title="AIRCRAFT" class="order_aircraft">Citation CJ2 Light Jet</li>
-                                <li data-title="SEATS" class="order_seats">6</li>
-                                <li data-title="ESTIMATED PRICE" class="order_price">€ 11,550</li>
-                            </ul>
-                        </li>
-                        <li class="order_drop_row">
-                            <ul>
-                                <li data-title="FROM" class="order_from">London</li>
-                                <li data-title="TO" class="order_to">Ibiza</li>
-                                <li data-title="AIRCRAFT" class="order_aircraft">Phenom 100 Very Light Jet</li>
-                                <li data-title="SEATS" class="order_seats">3</li>
-                                <li data-title="ESTIMATED PRICE" class="order_price">€ 17,50</li>
-                            </ul>
-                        </li>
-                        <li class="order_drop_row">
-                            <ul>
-                                <li data-title="FROM" class="order_from">London</li>
-                                <li data-title="TO" class="order_to">Ibiza</li>
-                                <li data-title="AIRCRAFT" class="order_aircraft">Citation CJ2 Light Jet</li>
-                                <li data-title="SEATS" class="order_seats">2</li>
-                                <li data-title="ESTIMATED PRICE" class="order_price">€ 74,550</li>
-                            </ul>
-                        </li>
-                        <li class="order_drop_row">
-                            <ul>
-                                <li data-title="FROM" class="order_from">London</li>
-                                <li data-title="TO" class="order_to">Ibiza</li>
-                                <li data-title="AIRCRAFT" class="order_aircraft">Phenom 100 Very Light Jet</li>
-                                <li data-title="SEATS" class="order_seats">6</li>
-                                <li data-title="ESTIMATED PRICE" class="order_price">€ 50,550</li>
-                            </ul>
-                        </li>
+                        @foreach($destJets as $destJet)
+
+                            <li class="order_drop_row">
+                                <ul>
+                                    <li data-title="FROM" class="order_from">{{$destJet['pivot']->from}}</li>
+                                    <li data-title="TO" class="order_to">{{$destJet['pivot']->to}}</li>
+                                    <li data-title="AIRCRAFT" class="order_aircraft">{{$destJet->title}}</li>
+                                    <li data-title="SEATS" class="order_seats">{{$destJet['pivot']->seats}}</li>
+                                    <li data-title="ESTIMATED PRICE" class="order_price">{{$destJet['pivot']->estimated_price}}</li>
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>
 @section('body-js')

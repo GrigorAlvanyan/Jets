@@ -8,7 +8,7 @@
     <script src="{{asset('js/slick.js')}}"></script>
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
 @endsection
-@include('templates/header')
+@include('../templates/header')
 <div class="content top_jets_inner">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
@@ -144,8 +144,8 @@
                         @forelse($destinations as $destination)
                         <li>
                             <div class="city_inner">
-                                <a href="" class="img_block"><img src="/images/image {{$destination->image_id}}.png" title="" alt=""/></a>
-                                <a href="" class="destinations_name">{{$destination->title}}</a>
+                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="img_block"><img src="/images/image {{$destination->image_id}}.png" title="" alt=""/></a>
+                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="destinations_name">{{$destination->title}}</a>
                             </div>
                         </li>
                         @empty
@@ -160,4 +160,4 @@
 @section('body-js')
     <script src="{{asset('js/main.js')}}"></script>
 @endsection
-@include('templates/footer')
+@include('../templates/footer')

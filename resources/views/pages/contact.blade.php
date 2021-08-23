@@ -43,28 +43,45 @@
                     <div class="contact_form animation_block right_animation">
                         <div class="banner_inner">
                             <div class="inner_description">{{$page->summary}}</div>
-                            <form>
+                            @if(session()->has('message'))
+                                {{session()->get('message')}}
+                            @endif
+
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <p><strong>Opps Something went wrong</strong></p>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form method="POST" action="{{route('subscribe_request')}}">
+                                @csrf
                                 <div class="inner_form">
                                     <div class="field_block standard_input">
-                                        <select class="ignore" name="name" data-validation="required">
-                                            <option value="1">Male</option>
-                                            <option value="2">Gender</option>
+                                        <select class="ignore" name="sex" data-validation="required">
+                                            <option value="male">Male</option>
+                                            <option value="female">Gender</option>
                                         </select>
                                         <span class="error_hint">mandatory field</span>
                                     </div>
                                     <div class="field_block standard_input">
-                                        <input type="text" name="name" placeholder="Name" autocomplete="off" data-validation="required"/>
+                                        <input type="text" name="name" value="{{old('name')}}" placeholder="Name" autocomplete="off" data-validation="required"/>
                                         <span class="error_hint">mandatory field</span>
                                     </div>
                                     <div class="field_block">
-                                        <input type="text" name="email" placeholder="Email Address" autocomplete="off" data-validation="email"/>
+                                        <input type="text" name="email" value="{{old('email')}}" placeholder="Email Address" autocomplete="off" data-validation="email"/>
                                         <span class="error_hint">
 										<span class="standard_hint">mandatory field</span>
 										<span class="individual_hint">invalid email</span>
 									</span>
                                     </div>
                                     <div class="field_block full_field">
-                                        <textarea name="message" placeholder="How may we help you?" autocomplete="off" data-validation="required"></textarea>
+                                        <textarea name="messages" placeholder="How may we help you?" autocomplete="off" data-validation="required">
+                                            {{old('messages')}}
+                                        </textarea>
                                         <span class="error_hint">mandatory field</span>
                                     </div>
                                     <button type="submit"  class="validate_btn">SEND MESSAGE</button>

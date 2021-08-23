@@ -7,10 +7,27 @@
     <div class="footer_inner">
         <div class="custom_container">
             <div class="page_title">JOIN OUR NEWSLETTER</div>
-            <form class="subscribe_form">
+
+            @if(session()->has('message'))
+                {{session()->get('message')}}
+            @endif
+
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form class="subscribe_form" method="POST" action="{{route('subscribe_request')}}">
+                @csrf
                 <div class="field_block">
                     <div class="inner_field">
-                        <input type="text" name="subscribe_email" data-validation="email"
+                        <input type="text" name="email" data-validation="email"
                                placeholder="Enter your email address"/>
                         <button type="submit" class="validate_btn icon_right"></button>
                     </div>

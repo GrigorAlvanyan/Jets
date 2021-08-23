@@ -13,6 +13,7 @@ class Jet extends Model
 
     public function destinations()
     {
-        return $this->belongsToMany(Destination::class, 'destination_jets');
+        return $this->belongsToMany(Destination::class, 'destinations_jets')
+            ->withPivot(['from', 'to', 'seats', 'estimated_price']);
     }
 }

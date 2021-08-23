@@ -13,12 +13,15 @@
 
 Route::get('/', 'HomeController@index');
 Route::post('/submit', 'FormController@requestQuotes')->name('request_quotes');
+Route::post('/subscribe', 'FormController@subscribeRequest')->name('subscribe_request');
 
 Route::get('jets', 'JetsController@index');
 Route::get('jets/{slug}', 'JetsController@show')->name('show_jet');
 
-Route::get('pages/destinations', 'DestinationsController@index');
-Route::get('pages/destinations/{slug?}', 'DestinationsController@show')->name('show_destination');
+Route::get('destinations', 'DestinationsController@index');
+Route::get('destinations/{slug?}', 'DestinationsController@show')->name('show_destination');
+
+Route::post('contact/submit', 'FormController@contactRequest')->name('contact_request');
 
 Route::get('pages/{slug}', 'PagesController@getPage');
 

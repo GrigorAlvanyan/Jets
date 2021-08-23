@@ -8,7 +8,8 @@ class Destination extends Model
 {
     public function jets()
     {
-        return $this->belongsToMany(Jet::class, 'destination_jets');
+        return $this->belongsToMany(Jet::class, 'destinations_jets')
+            ->withPivot(['from', 'to', 'seats', 'estimated_price']);
     }
 
     public function country()

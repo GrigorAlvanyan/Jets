@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Block;
 use App\Destination;
 use App\Jet;
+use App\JetCabin;
 use App\Menu;
 use App\Slider;
 use Illuminate\Http\Request;
@@ -21,7 +22,10 @@ class JetsController extends Controller
 
         $topJets = Jet::where('is_top', 1)->paginate(2);
 
-        return view('top_jets', compact('topJets', 'menus'));
+        $jetPage = DB::table('pages')->where('model', 'jet')->first();
+
+
+        return view('pages/top_jets', compact('topJets', 'jetPage', 'menus'));
     }
 
     public function show($slug)
@@ -33,6 +37,13 @@ class JetsController extends Controller
         $topJet = Jet::with('cabin')->where('slug', $slug)->firstOrFail();
 
         $destinations = DB::table('destinations')->where('image_id', '>', 0)->get();
-        return view('inner_jets', compact('topJet', 'menus', 'destinations'));
+
+//        dd($destinations);
+//      $jetPage = DB::table('jets')->where('slug', $slug)->first();
+//      dd($jetPage);
+
+
+
+        return view('pages/inner_jets', compact('topJet', 'menus', 'destinations'));
     }
 }

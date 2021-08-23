@@ -6,6 +6,7 @@ use App\Continent;
 use App\Destination;
 use App\DestinationBlock;
 use App\Menu;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +51,7 @@ class DestinationsController extends Controller
 
         //        dd($destinations);
 
-
+        $destinationPage = DB::table('pages')->where('model', 'destination')->first();
 
 //        $destinations = DB::table('destinations')->where(['continent_id' => $continent, 'country_id' => $country])->paginate(6);
 
@@ -60,7 +61,8 @@ class DestinationsController extends Controller
             'block' => $destBlock,
             'continents' => $continents,
             'countries' => $countries,
-            'destinations' => $destinations
+            'destinations' => $destinations,
+            'destinationPage' => $destinationPage
         ]);
     }
 
@@ -73,13 +75,15 @@ class DestinationsController extends Controller
 
         $dest = DB::table('destinations')->where('slug', $slug)->first();
 
-        $destination = Destination::with('destinationBlocks')->where('id', $dest->id)->firstOrFail();
+        $destination = Destination::with(['destinationBlocks', 'jets'])->where('id', $dest->id)->firstOrFail();
+
+        $destJets = $destination->jets;
         $destinationBlock = $destination->destinationBlocks;
 
         $sliderDestinations = Destination::get();//todo
 
 
-        return view('pages/inner_destinations', compact('destinationBlock', 'sliderDestinations','menus'));
+        return view('pages/inner_destinations', compact('destinationBlock', 'destJets','sliderDestinations','menus'));
     }
 
 }

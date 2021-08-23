@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDestinationJetsTable extends Migration
+class CreateSubscribesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateDestinationJetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('destination_jets', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('dest_id')->default(0);
-            $table->unsignedInteger('jet_id')->default(0);
+            $table->string('email',191)->unique();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateDestinationJetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destination_jets');
+        Schema::dropIfExists('subscribes');
     }
 }

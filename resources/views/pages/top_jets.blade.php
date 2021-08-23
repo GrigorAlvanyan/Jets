@@ -8,7 +8,7 @@
     <script src="{{asset('js/slick.js')}}"></script>
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
 @endsection
-@include('templates/header')
+@include('../templates/header')
 <div class="content top_jets_page">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
@@ -19,9 +19,9 @@
                     </div>
                     <div class="custom_container">
                         <div class="main_info">
-                            <div class="main_title">TOP JETS</div>
+                            <div class="main_title">{{$jetPage->title}}</div>
                             <div class="inner_description">
-                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you a
+                                {{$jetPage->summary}}
                             </div>
                         </div>
                     </div>
@@ -76,4 +76,4 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/top_jets.js')}}"></script>
 @endsection
-@include('templates/footer')
+@include('../templates/footer')

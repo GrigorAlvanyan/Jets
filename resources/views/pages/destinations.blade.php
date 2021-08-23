@@ -30,7 +30,7 @@
                     </div>
                     <div class="custom_container">
                         <div class="main_info form_blocks">
-                            <div class="main_title">aaa</div>
+                            <div class="main_title">{{ $destinationPage->title }}</div>
                         </div>
                     </div>
                     @include('form')

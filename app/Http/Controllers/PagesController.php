@@ -24,10 +24,11 @@ class PagesController extends Controller
             case 'contact':
                 return $this->contact($slug);
                 break;
-            case 'destinations':
-                return $this->destinations($slug);
+            case 'privacy_policy':
+                return $this->privacyPolicy($slug);
                 break;
-            case '':
+            case 'contact_private':
+                return $this->contactPrivate($slug);
                 break;
             default:
                 //
@@ -35,8 +36,6 @@ class PagesController extends Controller
 
         }
     }
-
-
 
     public function ourCompany($slug)
     {
@@ -86,24 +85,33 @@ class PagesController extends Controller
 
         return view('pages/contact', compact('page', 'contacts','menus'));
 
-
-
     }
 
 
-
-    public function destinations($slug)
+    public function privacyPolicy($slug)
     {
-//        $menus = Menu::with(['menuLinks' => function ($q) {
-//            $q->with('childrens');
-//        }])->where('title', 'header')->orWhere('title', 'footer')->get();
+        $menus = Menu::with(['menuLinks' => function ($q) {
+            $q->with('childrens');
+        }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
+//        dd($menus);
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
+        $pageSections = $page->sections;
 
-        return view('pages/destinations', compact('page'));
-
+        return view('pages/privacy_policy', compact( 'page', 'pageSections','menus'));
     }
 
+    public function contactPrivate($slug)
+    {
+        $menus = Menu::with(['menuLinks' => function ($q) {
+            $q->with('childrens');
+        }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
+//dd($menus);
+        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
+        $pageSections = $page->sections;
+
+        return view('pages/contact_private', compact( 'page','pageSections','menus'));
+    }
 
 }
