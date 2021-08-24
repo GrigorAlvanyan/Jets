@@ -25,5 +25,16 @@ Route::post('contact/submit', 'FormController@contactRequest')->name('contact_re
 
 Route::get('pages/{slug}', 'PagesController@getPage');
 
+
+
+
+
+//todo only logged users
+Route::get('admin', 'Admin\DashboardController@dashboard');
+Route::resource('admin/pages', 'Admin\PagesController');
+
+
+
+
 //Route::get('contacts', 'PagesController@contacts');
 
