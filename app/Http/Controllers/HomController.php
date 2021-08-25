@@ -2,33 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Block;
-use App\Destination;
-use App\Menu;
-use App\MenuLinks;
-use App\Slider;
 use Illuminate\Http\Request;
 
-
-
-class HomeController extends Controller
+class HomController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-//        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
     public function index()
     {
         $menus = Menu::with(['menuLinks' => function ($q) {
@@ -43,5 +20,4 @@ class HomeController extends Controller
 
         return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations'));
     }
-
 }

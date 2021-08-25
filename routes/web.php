@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+
 Route::post('/submit', 'FormController@requestQuotes')->name('request_quotes');
 Route::post('/subscribe', 'FormController@subscribeRequest')->name('subscribe_request');
 
@@ -29,12 +29,28 @@ Route::get('pages/{slug}', 'PagesController@getPage');
 
 
 
-//todo only logged users
-Route::get('admin', 'Admin\DashboardController@dashboard');
-Route::resource('admin/pages', 'Admin\PagesController');
+
+
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
+
+
+
+
+
+
+Route::prefix('admin')->namespace('Admin')->middleware(['auth'])->group(function () {
+    Route::get('/logout', function() {
+        auth()->logout();
+    });
+
+    Route::get('/', 'DashboardController@dashboard');
+    Route::resource('/pages', 'PagesController');
+});
 
 
 
 
 //Route::get('contacts', 'PagesController@contacts');
+
 

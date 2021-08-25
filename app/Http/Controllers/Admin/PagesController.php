@@ -39,6 +39,7 @@ class PagesController extends AdminController
     {
         $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
 
+
         return redirect()->back()->with('message', 'Page created');
     }
 

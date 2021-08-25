@@ -12,6 +12,7 @@ trait AdminSidebar
         $pages = Page::all();
 
         $sidebarItems['pages'] = $pages;
+//        dd( $sidebarItems['pages']);
 
         View::share('sidebarItems', $sidebarItems);
     }
