@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Page;
+use App\Http\Requests\JetRequest;
+use App\Jet;
 use Illuminate\Http\Request;
 
-//crud create, read, update, delete
-class PagesController extends AdminController
+class JetsController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,11 @@ class PagesController extends AdminController
      */
     public function index()
     {
-        //
+        $jets = Jet::all();
+
+//        dd($jets->first());
+
+        return view('admin.jets.index', compact('jets'));
     }
 
     /**
@@ -26,7 +30,7 @@ class PagesController extends AdminController
      */
     public function create()
     {
-        return view('admin.pages.form');
+        return view('admin.jets.form');
     }
 
     /**
@@ -35,11 +39,15 @@ class PagesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JetRequest $request)
     {
-        $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
 
-        return redirect()->back()->with('message', 'Page created');
+        $created = Jet::create($request->only('title', 'slug', 'is_top', 'manufacturer',
+            'speed', 'height', 'range', 'created_at'));
+
+
+
+        return redirect()->back()->with('message', 'Jet created');
     }
 
     /**
@@ -59,10 +67,9 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Jet $jet)
     {
-//        $page = Page::find($id) ?? abort(404);
-        return view('admin.pages.form', compact('page'));
+        return view('admin.jets.form', compact('jet'));
     }
 
     /**
@@ -72,11 +79,12 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JetRequest $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
-        return redirect()->back()->with('message', 'Page updated');
+        $created = Jet::where('id','=', $id)->update($request->only('title', 'slug', 'is_top', 'manufacturer',
+            'speed', 'height', 'range', 'created_at'));
 
+        return redirect()->back()->with('message', 'Jet updated');
     }
 
     /**
@@ -87,6 +95,11 @@ class PagesController extends AdminController
      */
     public function destroy($id)
     {
-        //
+        $jet = Jet::find($id);
+
+        $jet->delete();
+
+//        return redirect()->route('jets.index');
+        return redirect()->back()->with('message', 'Jet deleted');
     }
 }

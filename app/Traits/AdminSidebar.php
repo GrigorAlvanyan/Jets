@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Jet;
 use App\Page;
 use Illuminate\Support\Facades\View;
 

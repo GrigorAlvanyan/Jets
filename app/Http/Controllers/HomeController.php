@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Block;
 use App\Destination;
 use App\Menu;
@@ -31,6 +32,10 @@ class HomeController extends Controller
 
     public function index()
     {
+
+//        if (Auth::check()) {
+
+
         $menus = Menu::with(['menuLinks' => function ($q) {
             $q->with('childrens');
         }])->where('title', 'header')->orWhere('title', 'footer')->get();
@@ -42,6 +47,9 @@ class HomeController extends Controller
         $destinations = Destination::where('show_on_home', 1)->get();
 
         return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations'));
+//        } else {
+//            return view('auth.login');
+//        }
     }
 
 }

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jet extends Model
 {
+    protected $guarded = [];
+
     public function cabin()
     {
         return $this->hasOne(JetCabin::class, 'jet_id');

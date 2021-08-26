@@ -48,7 +48,6 @@ class FormController extends Controller
             $m->to(env('MAIL_FROM_ADDRESS'))->subject('New Contact subject');
         });
 
-        dd($created);
 
         return redirect()->back()->with('message', 'success');
 

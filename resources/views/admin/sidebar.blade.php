@@ -79,13 +79,9 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">User</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="jets"></i><span class="menu-title text-truncate" data-i18n="Jets">Jets</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="app-user-view.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="app-user-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('jets.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
                     </li>
                 </ul>
             </li>
@@ -93,7 +89,7 @@
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="/admin/pages/create"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Create page</span> <i class="fa fa-plus"></i></a></li>
                     @forelse($sidebarItems['pages'] as $page)
-                        <li><a class="d-flex align-items-center" href="page-profile.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">{{$page->title}}</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{route('pages.edit',['page'=>$page->id])}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">{{$page->title}}</span></a></li>
                     @empty
                     @endforelse
 

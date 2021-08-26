@@ -69,42 +69,80 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Create page</h4>
+                                <h4 class="card-title">Create jet</h4>
                             </div>
+
                             <div class="card-body">
                                 @include('forms.messages')
-                                @if(isset($page))
-                                    <form class="form" method="POST" action="{{route('pages.update', ['page'=>$page->id])}}">
+                                @if(isset($jet))
+                                    <form class="form" method="POST" action="{{route('jets.update', ['jet'=>$jet->id])}}">
                                         {{method_field('PUT')}}
                                         @else
-                                     <form class="form" method="POST" action="/admin/pages">
+                                     <form class="form" method="POST" action="/admin/jets">
                                 @endif
                                     @csrf
                                     <div class="row">
+{{--                                        <div class="col-md-6 col-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="image">Image</label>--}}
+{{--                                                <input type="image" id="image" class="form-control" placeholder="Image" name="image"--}}
+{{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
                                                 <input type="text" id="title" class="form-control" placeholder="Title" name="title"
-                                                       value="{{isset($page) ? $page->title : old('title')}}" />
+                                                       value="{{isset($jet) ? $jet->title : old('title')}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="slug">Slug</label>
                                                 <input type="text" id="slug" class="form-control" placeholder="Slug" name="slug"
-                                                       value="{{isset($page) ? $page->slug : old('slug')}}"/>
+                                                       value="{{isset($jet) ? $jet->slug : old('slug')}}"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="summary">Summary</label>
-                                                <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($page) ? $page->summary : old('summary')}}</textarea>
+                                                <label for="is_top">Is top</label>
+                                                <input type="text" id="is_top" class="form-control" placeholder="Is top" name="is_top"
+                                                       value="{{isset($jet) ? $jet->is_top : old('is_top')}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="body">Body</label>
-                                                <textarea class="form-control" id="body" rows="3" placeholder="Body" name="body">{{isset($page) ? $page->body : old('body')}}</textarea>
+                                                <label for="manufacturer">Manufacturer</label>
+                                                <input type="text" id="manufacturer" class="form-control" placeholder="Manufacturer" name="manufacturer"
+                                                       value="{{isset($jet) ? $jet->manufacturer : old('manufacturer')}}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="speed">Speed</label>
+                                                <input type="text" id="speed" class="form-control" placeholder="Speed" name="speed"
+                                                       value="{{isset($jet) ? $jet->speed : old('speed')}}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="height">Height</label>
+                                                <input type="text" id="height" class="form-control" placeholder="Height" name="height"
+                                                       value="{{isset($jet) ? $jet->height : old('height')}}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="range">Range</label>
+                                                <input type="text" id="range" class="form-control" placeholder="Range" name="range"
+                                                       value="{{isset($jet) ? $jet->range : old('range')}}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="created_at">Created at</label>
+                                                <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
+                                                       value="{{isset($jet) ? $jet->created_at : old('created_at')}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
