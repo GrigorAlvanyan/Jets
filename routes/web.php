@@ -43,6 +43,7 @@ Auth::routes();
     Route::get('/', 'DashboardController@dashboard');
     Route::resource('/pages', 'PagesController');
     Route::resource('/jets', 'JetsController');
+    Route::resource('/destinations', 'DestinationsController');
 });
 
 
