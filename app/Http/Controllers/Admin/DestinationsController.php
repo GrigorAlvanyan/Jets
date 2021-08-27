@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Destination;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestinationRequest;
 use Illuminate\Http\Request;
 
-class DestinationsController extends Controller
+class DestinationsController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -38,10 +39,10 @@ class DestinationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DestinationResuest $request)
+    public function store(DestinationRequest $request)
     {
         $created = Destination::create($request->only('title', 'slug', 'show_on_home', 'is_top', 'summary',
-            'body', 'image_id', 'continental_id', 'country_id', 'created_at'));
+            'body', 'image_id', 'continent_id', 'country_id', 'created_at'));
 
 
 
@@ -65,7 +66,7 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destination $id)
+    public function edit(Destination $destination)
     {
         return view('admin.destinations.form', compact('destination'));
     }
@@ -79,8 +80,8 @@ class DestinationsController extends Controller
      */
     public function update(DestinationRequest $request, $id)
     {
-        $updated = Destination::where('id','=', $id)->update($request->only('title', 'slug', 'show_on_home', 'is_top', 'summary',
-            'body', 'image_id', 'continental_id', 'country_id', 'created_at'));
+        $created = Destination::where('id','=', $id)->update($request->only('title', 'slug', 'show_on_home', 'is_top', 'summary',
+            'body', 'image_id', 'continent_id', 'country_id', 'created_at'));
 
         return redirect()->back()->with('message', 'Destination updated');
     }

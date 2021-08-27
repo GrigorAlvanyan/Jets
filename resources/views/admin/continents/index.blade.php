@@ -64,10 +64,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Destinations</h4>
+                            <h4 class="card-title">Continent</h4>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{route('destinations.create')}}">
+                            <form method="POST" action="{{route('continents.create')}}">
                                 {{method_field('GET')}}
                                 <button class="btn btn-primary" type="submit">Create</button>
                             </form>
@@ -77,20 +77,16 @@
                                 <thead>
                                 <tr>
                                     <th>Title</th>
-                                    <th>Slug</th>
                                     <th>Created at</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($destinations as $destination)
+                                @forelse($continents as $continent)
                                     <tr>
-                                        <td>{{$destination->title}}</td>
+                                        <td>{{$continent->title}}</td>
                                         <td>
-                                            {{$destination->slug}}
-                                        </td>
-                                        <td>
-                                            {{isset($destination->created_at) ? $destination->created_at->toDateString() : ''}}
+                                            {{isset($continent->created_at) ? $continent->created_at->toDateString() : ''}}
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -99,15 +95,15 @@
                                                     <span>Action</span>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{route('destinations.edit', ['destination' => $destination->id])}}">
+                                                    <a class="dropdown-item" href="{{route('continents.edit', ['continent' => $continent->id])}}">
                                                         <i data-feather="edit-2" class="mr-50"></i>
                                                         <span>Edit</span>
                                                     </a>
-                                                    <form action="{{route('destinations.destroy', ['destination' => $destination->id])}}" method="POST">
+                                                    <form action="{{route('continents.destroy', ['continent' => $continent->id])}}" method="POST">
                                                         {{method_field('DELETE')}}
                                                         @csrf
-                                                        <input type="hidden" name="id" value="{{$destination->id}}">
-                                                        <button type="submit" class="dropdown-item" >
+                                                        <input type="hidden" name="id" value="{{$continent->id}}">
+                                                        <button type="submit" class="dropdown-item">
                                                             <i data-feather="trash" class="mr-50"></i>
                                                             <span>Delete</span>
                                                         </button>

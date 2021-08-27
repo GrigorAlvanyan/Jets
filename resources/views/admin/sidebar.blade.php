@@ -79,6 +79,18 @@
                     </li>
                 </ul>
             </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="continents"></i><span class="menu-title text-truncate" data-i18n="Continents">Continent</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('continents.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="countries"></i><span class="menu-title text-truncate" data-i18n="Countries">Country</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('countries.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="destinations"></i><span class="menu-title text-truncate" data-i18n="Destinations">Destinations</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('destinations.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>

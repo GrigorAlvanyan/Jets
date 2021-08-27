@@ -18,8 +18,6 @@ class JetsController extends AdminController
     {
         $jets = Jet::all();
 
-//        dd($jets->first());
-
         return view('admin.jets.index', compact('jets'));
     }
 
@@ -44,8 +42,6 @@ class JetsController extends AdminController
 
         $created = Jet::create($request->only('title', 'slug', 'is_top', 'manufacturer',
             'speed', 'height', 'range', 'created_at'));
-
-
 
         return redirect()->back()->with('message', 'Jet created');
     }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuotesResquest extends FormRequest
+class PageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,11 @@ class QuotesResquest extends FormRequest
     public function rules()
     {
         return [
-//            'from' => '',
-//            'to' => '',
-//            'when' => '',
-//            'time' => '',
-//            'passangers_count' => '',
-//            'adults' => '',
-//            'childrens' => '',
+            'title' =>  'required|min:3|max:255',
+//            'slug' => 'required|max:191',
+            'summary' => 'required',
+            'body' => 'required'
+
         ];
     }
 }

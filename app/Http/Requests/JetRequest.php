@@ -25,8 +25,8 @@ class JetRequest extends FormRequest
     {
         return [
 //            'image' => '',
-            'title' => 'required|max:5',
-            'slug' => 'required|max:191',
+            'title' => 'required|min:3|max:10',
+//            'slug' => 'required|max:191',
             'is_top' => 'required|max:1',
             'manufacturer' => 'required|max:255',
             'speed' => 'required|max:255',

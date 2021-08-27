@@ -120,15 +120,13 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="summary">Summary</label>
-                                                <input type="text" id="summary" class="form-control" placeholder="Summary" name="summary"
-                                                       value="{{isset($destination) ? $destination->summary : old('summary')}}" />
+                                                <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($destination) ? $destination->summary : old('summary')}}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="body">Body</label>
-                                                <input type="text" id="body" class="form-control" placeholder="Body" name="body"
-                                                       value="{{isset($destination) ? $destination->body : old('body')}}" />
+                                                <textarea class="form-control" id="body" rows="3" placeholder="Body" name="body">{{isset($destination) ? $destination->body : old('body')}}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
@@ -140,9 +138,9 @@
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="continental_id">Continental Id</label>
-                                                <input type="text" id="continental_id" class="form-control" placeholder="Continental Id" name="continental_id"
-                                                       value="{{isset($destination) ? $destination->continental_id : old('continental_id')}}" />
+                                                <label for="continent_id">Continent Id</label>
+                                                <input type="text" id="continent_id" class="form-control" placeholder="Continent Id" name="continent_id"
+                                                       value="{{isset($destination) ? $destination->continent_id : old('continent_id')}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
@@ -156,7 +154,7 @@
                                             <div class="form-group">
                                                 <label for="created_at">Created at</label>
                                                 <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                       value="{{isset($jet) ? $jet->created_at : old('created_at')}}" />
+                                                       value="{{isset($destination) ? $destination->created_at : old('created_at')}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">

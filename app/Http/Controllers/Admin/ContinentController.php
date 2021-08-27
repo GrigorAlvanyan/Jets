@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Continent;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PageRequest;
-use App\Page;
+use App\Http\Requests\ContinentRequest;
 use Illuminate\Http\Request;
 
-//crud create, read, update, delete
-class PagesController extends AdminController
+class ContinentController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,9 @@ class PagesController extends AdminController
      */
     public function index()
     {
-        //
+        $continents = Continent::all();
+
+        return view('admin.continents.index', compact('continents'));
     }
 
     /**
@@ -27,7 +28,7 @@ class PagesController extends AdminController
      */
     public function create()
     {
-        return view('admin.pages.form');
+        return view('admin.continents.form');
     }
 
     /**
@@ -36,11 +37,11 @@ class PagesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PageRequest $request)
+    public function store(ContinentRequest $request)
     {
-        $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
+        $created = Continent::create($request->only('image_id', 'title', 'created_at'));
 
-        return redirect()->back()->with('message', 'Page created');
+        return redirect()->back()->with('message', 'Continent created');
     }
 
     /**
@@ -60,10 +61,9 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Continent $continent)
     {
-//        $page = Page::find($id) ?? abort(404);
-        return view('admin.pages.form', compact('page'));
+        return view('admin.continents.form', compact('continent'));
     }
 
     /**
@@ -73,11 +73,11 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(ContinentRequest $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
-        return redirect()->back()->with('message', 'Page updated');
+        $updated = Continent::where('id','=', $id)->update($request->only('image_id', 'title', 'created_at'));
 
+        return redirect()->back()->with('message', 'Continent updated');
     }
 
     /**
@@ -88,6 +88,10 @@ class PagesController extends AdminController
      */
     public function destroy($id)
     {
-        //
+        $continent = Continent::find($id);
+
+        $continent->delete();
+
+        return redirect()->back()->with('message', 'Continent deleted');
     }
 }

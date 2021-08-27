@@ -44,7 +44,10 @@ Auth::routes();
     Route::resource('/pages', 'PagesController');
     Route::resource('/jets', 'JetsController');
     Route::resource('/destinations', 'DestinationsController');
-});
+    Route::resource('/countries', 'CountriesController');
+    Route::resource('/continents', 'ContinentController');
+
+    });
 
 
 

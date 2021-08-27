@@ -7,6 +7,7 @@ use App\BookJet;
 use App\Contact;
 use App\Destination;
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\QuotesResquest;
 use App\Http\Requests\SubscribeRequest;
 use App\Menu;
 use App\MenuLinks;
@@ -18,15 +19,23 @@ use Illuminate\Support\Facades\Mail;
 class FormController extends Controller
 {
 
-    public function requestQuotes(Request $request)
+    public function requestQuotes(QuotesResquest $request)
     {
         $data = $request->only('from', 'to', 'when', 'time', 'passangers_count','adults', 'childrens');
 
         $created = BookJet::create($data);
 
+//        $created = BookJet::create($request)->only('from', 'to', 'when', 'time', 'passangers_count','adults', 'childrens');
+
         if (!$created) {
             return redirect()->back()->with('message', 'error');
         }
+
+
+//        Mail::send('emails.contact', ['contact' => $created], function ($m) use ($created) {
+//            $m->from($created->email);
+//            $m->to(env('MAIL_FROM_ADDRESS'))->subject('New Contact subject');
+
 
         return redirect()->back()->with('message', 'success');
 

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Continent;
+use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PageRequest;
-use App\Page;
+use App\Http\Requests\CountryRequest;
 use Illuminate\Http\Request;
 
-//crud create, read, update, delete
-class PagesController extends AdminController
+class CountriesController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,9 @@ class PagesController extends AdminController
      */
     public function index()
     {
-        //
+        $countries = Country::all();
+
+        return view('admin.countries.index', compact('countries'));
     }
 
     /**
@@ -27,7 +29,11 @@ class PagesController extends AdminController
      */
     public function create()
     {
-        return view('admin.pages.form');
+        $continents = Continent::get();
+
+        return view('admin.countries.form', [
+            'continents' => $continents
+        ]);
     }
 
     /**
@@ -36,11 +42,12 @@ class PagesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PageRequest $request)
+    public function store(CountryRequest $request)
     {
-        $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
+        $created = Country::create($request->only('image_id', 'continent_id', 'title', 'created_at'));
 
-        return redirect()->back()->with('message', 'Page created');
+
+        return redirect()->back()->with('message', 'Country created');
     }
 
     /**
@@ -60,10 +67,11 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Country $country)
     {
-//        $page = Page::find($id) ?? abort(404);
-        return view('admin.pages.form', compact('page'));
+        $continents = Continent::get();
+
+        return view('admin.countries.form', compact('country', 'continents'));
     }
 
     /**
@@ -73,11 +81,11 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(CountryRequest $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
-        return redirect()->back()->with('message', 'Page updated');
+        $updated = Country::where('id','=', $id)->update($request->only('image_id', 'continent_id', 'title', 'created_at'));
 
+        return redirect()->back()->with('message', 'Country updated');
     }
 
     /**
@@ -88,6 +96,10 @@ class PagesController extends AdminController
      */
     public function destroy($id)
     {
-        //
+        $country = Country::find($id);
+
+        $country->delete();
+
+        return redirect()->back()->with('message', 'Country deleted');
     }
 }
