@@ -46,6 +46,9 @@ Auth::routes();
     Route::resource('/destinations', 'DestinationsController');
     Route::resource('/countries', 'CountriesController');
     Route::resource('/continents', 'ContinentController');
+    Route::resource('/cabinSpecifications', 'CabinSpecificationsController');
+    Route::resource('/blocks', 'BlocksController');
+    Route::resource('/sections', 'SectionsController');
 
     });
 

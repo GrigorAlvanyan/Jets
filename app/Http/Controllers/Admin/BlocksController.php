@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Continent;
-use App\Country;
+use App\Block;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CountryRequest;
+use App\Http\Requests\BlocksRequest;
 use Illuminate\Http\Request;
 
-class CountriesController extends AdminController
+class BlocksController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,9 @@ class CountriesController extends AdminController
      */
     public function index()
     {
-        $countries = Country::all();
+        $blocks = Block::get();
 
-
-        return view('admin.countries.index', compact('countries'));
+        return view('admin.blocks.index', compact('blocks'));
     }
 
     /**
@@ -30,11 +28,7 @@ class CountriesController extends AdminController
      */
     public function create()
     {
-        $continents = Continent::get();
-
-        return view('admin.countries.form', [
-            'continents' => $continents
-        ]);
+        return view('admin.blocks.form');
     }
 
     /**
@@ -43,12 +37,12 @@ class CountriesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CountryRequest $request)
+    public function store(BlocksRequest $request)
     {
-        $created = Country::create($request->only('image_id', 'continent_id', 'title', 'created_at'));
+        $created = Block::create($request->only('image_id', 'title', 'slug', 'show_on_home',  'summary',
+            'youtube_link', 'url',  'url_title', 'created_at'));
 
-
-        return redirect()->back()->with('message', 'Country created');
+        return redirect()->back()->with('message', 'Block created');
     }
 
     /**
@@ -68,11 +62,9 @@ class CountriesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Block $block)
     {
-        $continents = Continent::get();
-
-        return view('admin.countries.form', compact('country', 'continents'));
+        return view('admin.blocks.form', compact('block'));
     }
 
     /**
@@ -82,11 +74,12 @@ class CountriesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CountryRequest $request, $id)
+    public function update(BlocksRequest $request, $id)
     {
-        $updated = Country::where('id','=', $id)->update($request->only('image_id', 'continent_id', 'title', 'created_at'));
+        $uptades = Block::where('id','=', $id)->update($request->only('image_id', 'title', 'slug', 'show_on_home',  'summary',
+            'youtube_link', 'url',  'url_title', 'created_at'));
 
-        return redirect()->back()->with('message', 'Country updated');
+        return redirect()->back()->with('message', 'Block updated');
     }
 
     /**
@@ -97,10 +90,10 @@ class CountriesController extends AdminController
      */
     public function destroy($id)
     {
-        $country = Country::find($id);
+        $block = Block::find($id);
 
-        $country->delete();
+        $block->delete();
 
-        return redirect()->back()->with('message', 'Country deleted');
+       return redirect()->back()->with('message', 'Block deleted');
     }
 }

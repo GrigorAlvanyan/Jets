@@ -79,6 +79,24 @@
                     </li>
                 </ul>
             </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="blocks"></i><span class="menu-title text-truncate" data-i18n="Sections">Page Sections</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('sections.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="sections"></i><span class="menu-title text-truncate" data-i18n="Blocks">Blocks</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('blocks.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="cabin_specifications"></i><span class="menu-title text-truncate" data-i18n="CabinSpecifications">Cabin Specifications</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('cabinSpecifications.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="continents"></i><span class="menu-title text-truncate" data-i18n="Continents">Continent</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('continents.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
