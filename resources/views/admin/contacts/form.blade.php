@@ -69,17 +69,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Create country</h4>
+                                <h4 class="card-title">Create continent</h4>
                             </div>
 
                             <div class="card-body">
                                 @include('forms.messages')
-                                @if(isset($country))
-                                    <form class="form" method="POST" action="{{route('countries.update', ['country'=>$country->id])}}">
+                                @if(isset($contact))
+                                    <form class="form" method="POST" action="{{route('contacts.update', ['contact'=>$contact->id])}}">
                                         {{method_field('PUT')}}
-
                                         @else
-                                            <form class="form" method="POST" action="/admin/countries">
+                                            <form class="form" method="POST" action="/admin/contacts">
                                                 @endif
                                                 @csrf
                                                 <div class="row">
@@ -90,53 +89,56 @@
                                                     {{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
                                                     {{--                                            </div>--}}
                                                     {{--                                        </div>--}}
+
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
-                                                            <label for="image_id">Image Id</label>
-                                                            <input type="text" id="image_id" class="form-control" placeholder="Image Id" name="image_id"
-                                                                   value="{{isset($country) ? $country->image_id : old('image_id')}}" />
+                                                            <label for="sex">Sex</label>
+                                                            <input type="text" id="sex" class="form-control" placeholder="Sex" name="sex"
+                                                                   value="{{isset($contact) ? $contact->sex : old('sex')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
-                                                            <label for="continent_id">Continent Id</label>
-                                                            <input type="text" id="continent_id" class="form-control" placeholder="Continent Id" name="continent_id"
-                                                                   value="{{isset($country) ? $country->continent_id : old('continent_id')}}" />
+                                                            <label for="name">Name</label>
+                                                            <input type="text" id="name" class="form-control" placeholder="Name" name="name"
+                                                                   value="{{isset($contact) ? $contact->name : old('name')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
-                                                            <label for="title">Title</label>
-                                                            <input type="text" id="title" class="form-control" placeholder="Title" name="title"
-                                                                   value="{{isset($country) ? $country->title : old('title')}}" />
+                                                            <label for="email">Email</label>
+                                                            <input type="text" id="email" class="form-control" placeholder="Email" name="email"
+                                                                   value="{{isset($contact) ? $contact->email : old('email')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="messages">Messages</label>
+                                                            <input type="text" id="messages" class="form-control" placeholder="Messages" name="messages"
+                                                                   value="{{isset($contact) ? $contact->messages : old('messages')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
                                                             <label for="created_at">Created at</label>
                                                             <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                                   value="{{isset($jet) ? $jet->created_at : old('created_at')}}" />
+                                                                   value="{{isset($contact) ? $contact->created_at : old('created_at')}}" />
                                                         </div>
                                                     </div>
-                                                    @if(isset($continents) && $continents->count())
-                                                        <div class="col-md-6 col-12">
-                                                            <div class="form-group">
-                                                                <label for="model">Continent</label>
-                                                                <select class="form-control" id="cont" name="continent_id">
-                                                                    <option default>Select</option>
-                                                                    @foreach($continents as $continent)
-                                                                        <option value="{{$continent->id}}" {{isset($country) && $country->continent_id == $continent->id ? 'selected' : ''}}>{{$continent->title}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="model">Model</label>
+                                                            <select class="form-control" id="model" name="model">
+                                                                <option selected default>Select</option>
+                                                            </select>
                                                         </div>
-                                                    @endif
+                                                    </div>
                                                     <div class="col-12">
                                                         <button type="submit" class="btn btn-primary mr-1">Submit</button>
                                                         <button type="reset" class="btn btn-outline-secondary">Reset</button>
                                                     </div>
-                                            </div>
-                                    </form>
+                                                </div>
+                                            </form>
                             </div>
                         </div>
                     </div>

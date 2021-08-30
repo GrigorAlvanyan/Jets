@@ -82,19 +82,52 @@
                                                 @endif
                                                 @csrf
                                                 <div class="row">
-                                                    {{--                                        <div class="col-md-6 col-12">--}}
-                                                    {{--                                            <div class="form-group">--}}
-                                                    {{--                                                <label for="image">Image</label>--}}
-                                                    {{--                                                <input type="image" id="image" class="form-control" placeholder="Image" name="image"--}}
-                                                    {{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
-                                                    {{--                                            </div>--}}
-                                                    {{--                                        </div>--}}
-
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
                                                             <label for="title">Title</label>
                                                             <input type="text" id="title" class="form-control" placeholder="Title" name="title"
                                                                    value="{{isset($block) ? $block->title : old('title')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="slug">Slug</label>
+                                                            <input type="text" id="slug" class="form-control" placeholder="Slug" name="slug"
+                                                                   value="{{isset($block) ? $block->slug : old('slug')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="show_on_home">Show On Home</label>
+                                                            <input type="text" id="show_on_home" class="form-control" placeholder="Show On Home" name="show_on_home"
+                                                                   value="{{isset($block) ? $block->show_on_home : old('show_on_home')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="summary">Summary</label>
+                                                            <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($block) ? $block->summary : old('summary')}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="youtube_link">Youtube Link</label>
+                                                            <input type="text" id="youtube_link" class="form-control" placeholder="Youtube Link" name="youtube_link"
+                                                                   value="{{isset($block) ? $block->youtube_link : old('youtube_link')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="url">Url</label>
+                                                            <input type="text" id="url" class="form-control" placeholder="Url" name="url"
+                                                                   value="{{isset($block) ? $block->url : old('url')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="url_title">Url Title</label>
+                                                            <input type="text" id="url_title" class="form-control" placeholder="Url Title" name="url_title"
+                                                                   value="{{isset($block) ? $block->url_title : old('url_title')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">

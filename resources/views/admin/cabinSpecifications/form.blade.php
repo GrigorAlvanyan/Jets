@@ -89,7 +89,20 @@
                                                     {{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
                                                     {{--                                            </div>--}}
                                                     {{--                                        </div>--}}
-
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="jet_id">Jet Id</label>
+                                                            <input type="text" id="jet_id" class="form-control" placeholder="Jet Id" name="jet_id"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->jet_id : old('jet_id')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="image_id">Image Id</label>
+                                                            <input type="text" id="image_id" class="form-control" placeholder="Image Id" name="image_id"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->image_id : old('image_id')}}" />
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
                                                             <label for="title">Title</label>
@@ -97,13 +110,61 @@
                                                                    value="{{isset($cabinSpecification) ? $cabinSpecification->title : old('title')}}" />
                                                         </div>
                                                     </div>
-                                                    {{--                                                    <div class="col-md-6 col-12">--}}
-                                                    {{--                                                        <div class="form-group">--}}
-                                                    {{--                                                            <label for="created_at">Created at</label>--}}
-                                                    {{--                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"--}}
-                                                    {{--                                                                   value="{{isset($jet) ? $jet->created_at : old('created_at')}}" />--}}
-                                                    {{--                                                        </div>--}}
-                                                    {{--                                                    </div>--}}
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="summary">Summary</label>
+                                                            <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($cabinSpecification) ? $cabinSpecification->summary : old('summary')}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="seats">Seats</label>
+                                                            <input type="text" id="seats" class="form-control" placeholder="Seats" name="seats"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->seats : old('seats')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="suitcase">Suitcase</label>
+                                                            <input type="text" id="suitcase" class="form-control" placeholder="Suitcase" name="suitcase"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->suitcase : old('suitcase')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="carry_on">Carry On</label>
+                                                            <input type="text" id="carry_on" class="form-control" placeholder="Carry On" name="carry_on"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->carry_on : old('carry_on')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="manufacturer">Manufacturer</label>
+                                                            <input type="text" id="manufacturer" class="form-control" placeholder="Manufacturer" name="manufacturer"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->manufacturer : old('manufacturer')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="height">Height</label>
+                                                            <input type="text" id="height" class="form-control" placeholder="Height" name="height"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->height : old('height')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="speed">Speed</label>
+                                                            <input type="text" id="speed" class="form-control" placeholder="Speed" name="speed"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->speed : old('speed')}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="created_at">Created at</label>
+                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
+                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->created_at : old('created_at')}}" />
+                                                        </div>
+                                                    </div>
                                                     @if(isset($jets) && $jets->count())
                                                         <div class="col-md-6 col-12">
                                                             <div class="form-group">

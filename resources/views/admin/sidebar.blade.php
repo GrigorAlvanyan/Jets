@@ -79,13 +79,25 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="blocks"></i><span class="menu-title text-truncate" data-i18n="Sections">Page Sections</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="contacts"></i><span class="menu-title text-truncate" data-i18n="Sections">Contacts</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('contacts.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="partners"></i><span class="menu-title text-truncate" data-i18n="Sections">Partners</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('partners.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="sections"></i><span class="menu-title text-truncate" data-i18n="Sections">Page Sections</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('sections.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="sections"></i><span class="menu-title text-truncate" data-i18n="Blocks">Blocks</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="blocks"></i><span class="menu-title text-truncate" data-i18n="Blocks">Blocks</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('blocks.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
                     </li>
@@ -121,16 +133,22 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Pages</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pages"></i><span class="menu-title text-truncate" data-i18n="Pages">Pages</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="/admin/pages/create"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Create page</span> <i class="fa fa-plus"></i></a></li>
-                    @forelse($sidebarItems['pages'] as $page)
-                        <li><a class="d-flex align-items-center" href="{{route('pages.edit',['page'=>$page->id])}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">{{$page->title}}</span></a></li>
-                    @empty
-                    @endforelse
-
+                    <li><a class="d-flex align-items-center" href="{{route('pages.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
                 </ul>
             </li>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Pages</span></a>--}}
+{{--                <ul class="menu-content">--}}
+{{--                    <li><a class="d-flex align-items-center" href="/admin/pages/create"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Create page</span> <i class="fa fa-plus"></i></a></li>--}}
+{{--                    @forelse($sidebarItems['pages'] as $page)--}}
+{{--                        <li><a class="d-flex align-items-center" href="{{route('pages.edit',['page'=>$page->id])}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">{{$page->title}}</span></a></li>--}}
+{{--                    @empty--}}
+{{--                    @endforelse--}}
+
+{{--                </ul>--}}
+{{--            </li>--}}
             <li class=" navigation-header"><span data-i18n="User Interface">User Interface</span><i data-feather="more-horizontal"></i>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i data-feather="type"></i><span class="menu-title text-truncate" data-i18n="Typography">Typography</span></a>

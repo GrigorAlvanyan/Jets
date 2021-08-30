@@ -47,7 +47,7 @@ class CabinSpecificationsController extends AdminController
      */
     public function store(CabinSpecificationsRequest $request)
     {
-        $created = JetCabin::create($request->only('image_id', 'title', 'seats', 'suitcase', 'carry_on',
+        $created = JetCabin::create($request->only('jet_id','image_id', 'title', 'seats', 'suitcase', 'carry_on',
             'manufacturer', 'height', 'speed', 'created_at'));
 
 
@@ -87,7 +87,7 @@ class CabinSpecificationsController extends AdminController
      */
     public function update(CabinSpecificationsRequest $request, $id)
     {
-        $updated = JetCabin::where('id','=', $id)->update($request->only('image_id', 'title', 'seats', 'suitcase', 'carry_on',
+        $updated = JetCabin::where('id','=', $id)->update($request->only('jet_id','image_id', 'title', 'seats', 'suitcase', 'carry_on',
             'manufacturer', 'height', 'speed', 'created_at'));
 
         return redirect()->back()->with('message', 'Cabin Specification updated');

@@ -49,6 +49,8 @@ Auth::routes();
     Route::resource('/cabinSpecifications', 'CabinSpecificationsController');
     Route::resource('/blocks', 'BlocksController');
     Route::resource('/sections', 'SectionsController');
+    Route::resource('/partners', 'PartnersController');
+    Route::resource('/contacts', 'ContactsController');
 
     });
 

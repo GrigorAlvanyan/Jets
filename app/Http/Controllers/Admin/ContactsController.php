@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contact;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PageRequest;
-use App\Page;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 
-//crud create, read, update, delete
-class PagesController extends AdminController
+class ContactsController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class PagesController extends AdminController
      */
     public function index()
     {
-        $pages = Page::get();
+        $contacts = Contact::get();
 
-        return view('admin.pages.index', compact('pages'));
+        return  view('admin.contacts.index', compact('contacts'));
     }
 
     /**
@@ -29,7 +28,7 @@ class PagesController extends AdminController
      */
     public function create()
     {
-        return view('admin.pages.form');
+        return view('admin.contacts.form');
     }
 
     /**
@@ -38,11 +37,11 @@ class PagesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PageRequest $request)
+    public function store(ContactRequest $request)
     {
-        $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
+        $created = Contact::create($request->only('sex', 'name', 'email', 'messages', 'created_at'));
 
-        return redirect()->back()->with('message', 'Page created');
+        return redirect()->back()->with('message', 'Contact created');
     }
 
     /**
@@ -62,10 +61,9 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Contact $contact)
     {
-//        $page = Page::find($id) ?? abort(404);
-        return view('admin.pages.form', compact('page'));
+        return view('admin.contacts.form');
     }
 
     /**
@@ -75,11 +73,12 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
-        return redirect()->back()->with('message', 'Page updated');
+        $updated = Contact::where('id', '=', $id)->uptade($request->only('sex', 'name', 'email',
+            'messages', 'created_at'));
 
+        return redirect()->back()->with('message', 'Contact updated');
     }
 
     /**
@@ -90,10 +89,10 @@ class PagesController extends AdminController
      */
     public function destroy($id)
     {
-        $pages = Page::find($id);
+        $contact = Contact::find($id);
 
-        $pages->delete();
+        $contact->delete();
 
-        return redirect()->back()->with('message', 'Page deleted');
+        return redirect()->back()->with('message', 'Contact deleted');
     }
 }

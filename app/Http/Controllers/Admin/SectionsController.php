@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SectionsRequest;
+use App\Page;
 use App\PageSection;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,11 @@ class SectionsController extends AdminController
      */
     public function create()
     {
-        return view('admin.sections.form');
+        $pages = Page::get();
+
+        return view('admin.sections.form',[
+            'pages' => $pages
+        ]);
     }
 
     /**
@@ -39,8 +44,8 @@ class SectionsController extends AdminController
      */
     public function store(SectionsRequest $request)
     {
-        $created = PageSection::create($request->only( 'title', 'image_id',
-             'created_at'));
+        $created = PageSection::create($request->only('page_id', 'image_id', 'youtube_id',
+            'position', 'title', 'summary','created_at'));
 
         return redirect()->back()->with('message', 'Section created');
     }
@@ -64,7 +69,9 @@ class SectionsController extends AdminController
      */
     public function edit(PageSection $section)
     {
-        return view('admin.sections.form', compact('section'));
+        $pages = Page::get();
+
+        return view('admin.sections.form', compact('section', 'pages'));
     }
 
     /**
@@ -76,8 +83,8 @@ class SectionsController extends AdminController
      */
     public function update(SectionsRequest $request, $id)
     {
-        $created = PageSection::where('id', '=', $id)->update($request->only('page_id', 'image_id', 'title',
-            'created_at'));
+        $created = PageSection::where('id', '=', $id)->update($request->only('page_id', 'image_id', 'youtube_id',
+            'position', 'title', 'summary','created_at'));
 
         return redirect()->back()->with('message', 'Section updated');
     }

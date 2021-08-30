@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PageRequest;
-use App\Page;
+use App\Http\Requests\PartnersRequest;
+use App\Partner;
 use Illuminate\Http\Request;
 
-//crud create, read, update, delete
-class PagesController extends AdminController
+class PartnersController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,10 @@ class PagesController extends AdminController
      */
     public function index()
     {
-        $pages = Page::get();
+        $partners = Partner::get();
 
-        return view('admin.pages.index', compact('pages'));
+
+        return view('admin.partners.index', compact('partners'));
     }
 
     /**
@@ -29,7 +29,7 @@ class PagesController extends AdminController
      */
     public function create()
     {
-        return view('admin.pages.form');
+        return view('admin.partners.form');
     }
 
     /**
@@ -38,11 +38,11 @@ class PagesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PageRequest $request)
+    public function store(PartnersRequest $request)
     {
-        $created = Page::create($request->only('title', 'slug', 'summary', 'body', 'model'));
+        $created = Partner::create($request->only('image_id', 'position', 'url', 'created_at'));
 
-        return redirect()->back()->with('message', 'Page created');
+        return redirect()->back()->with('message', 'Partner created');
     }
 
     /**
@@ -62,10 +62,9 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Partner $partner)
     {
-//        $page = Page::find($id) ?? abort(404);
-        return view('admin.pages.form', compact('page'));
+        return view('admin.partners.form', compact('partner'));
     }
 
     /**
@@ -75,11 +74,11 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(PartnersRequest $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
-        return redirect()->back()->with('message', 'Page updated');
+        $updated = Partner::where('id', '=', $id)->update($request->only('image_id', 'position', 'url', 'created_at'));
 
+        return redirect()->back()->with('message', 'Partner updated');
     }
 
     /**
@@ -90,10 +89,10 @@ class PagesController extends AdminController
      */
     public function destroy($id)
     {
-        $pages = Page::find($id);
+        $partner = Partner::find($id);
 
-        $pages->delete();
+        $partner->delete();
 
-        return redirect()->back()->with('message', 'Page deleted');
+        return redirect()->back()->with('message', 'Partner deleted');
     }
 }

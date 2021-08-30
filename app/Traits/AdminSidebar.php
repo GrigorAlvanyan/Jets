@@ -10,11 +10,11 @@ trait AdminSidebar
 {
     public function getSidebar()
     {
-        $pages = Page::all();
-
-        $sidebarItems['pages'] = $pages;
-
-        View::share('sidebarItems', $sidebarItems);
+//        $pages = Page::all();
+//
+//        $sidebarItems['pages'] = $pages;
+//
+//        View::share('sidebarItems', $sidebarItems);
     }
 
 }
