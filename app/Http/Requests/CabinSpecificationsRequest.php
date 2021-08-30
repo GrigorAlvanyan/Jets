@@ -24,7 +24,16 @@ class CabinSpecificationsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'jet_id' => 'required|integer|exists:jets,id',
+            'image_id' => 'required|integer',
+            'title' => 'required|min:3|max:255',
+            'summary' => 'required',
+            'seats' => 'required|integer',
+            'suitcase' => 'required|integer',
+            'carry_on' => 'required|integer',
+            'manufacturer' => 'required|min:2|max:255',
+            'height' => 'required|min:2|max:255',
+            'speed' => 'required|min:2|max:255'
         ];
     }
 }

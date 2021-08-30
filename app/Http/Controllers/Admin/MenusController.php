@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Contact;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ContactRequest;
+use App\Http\Requests\MenusRequest;
+use App\Menu;
 use Illuminate\Http\Request;
 
-class ContactsController extends AdminController
+class MenusController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class ContactsController extends AdminController
      */
     public function index()
     {
-        $contacts = Contact::get();
+        $menus = Menu::get();
 
-        return  view('admin.contacts.index', compact('contacts'));
+        return view('admin.menus.index', compact('menus'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ContactsController extends AdminController
      */
     public function create()
     {
-        return view('admin.contacts.form');
+        return view('admin.menus.form');
     }
 
     /**
@@ -37,11 +37,11 @@ class ContactsController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(MenusRequest $request)
     {
-        $created = Contact::create($request->only('sex', 'name', 'email', 'messages', 'created_at'));
+        $created = Menu::create($request->only(  'title', 'status', 'position'));
 
-        return redirect()->back()->with('message', 'Contact created');
+        return redirect()->back()->with('message', 'Menu created');
     }
 
     /**
@@ -61,9 +61,9 @@ class ContactsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Menu $menu)
     {
-        return view('admin.contacts.form');
+        return view('admin.menus.form', compact('menu'));
     }
 
     /**
@@ -73,12 +73,12 @@ class ContactsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ContactRequest $request, $id)
+    public function update(MenusRequest $request, $id)
     {
-        $updated = Contact::where('id', '=', $id)->uptade($request->only('sex', 'name', 'email',
-            'messages', 'created_at'));
+        $updated = Menu::where('id', '=', $id)->update($request->only( 'title',
+            'status', 'position'));
 
-        return redirect()->back()->with('message', 'Contact updated');
+        return redirect()->back()->with('message', 'Menu updated');
     }
 
     /**
@@ -89,10 +89,10 @@ class ContactsController extends AdminController
      */
     public function destroy($id)
     {
-        $contact = Contact::find($id);
+        $menu = Menu::find($id);
 
-        $contact->delete();
+        $menu->delete();
 
-        return redirect()->back()->with('message', 'Contact deleted');
+        return redirect()->back()->with('Menu', 'deleted');
     }
 }

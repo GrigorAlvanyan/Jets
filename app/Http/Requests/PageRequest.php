@@ -25,7 +25,7 @@ class PageRequest extends FormRequest
     {
         return [
             'title' =>  'required|min:3|max:255',
-//            'slug' => 'required|max:191',
+            'slug' => 'unique:pages',
             'summary' => 'required',
             'body' => 'required'
 

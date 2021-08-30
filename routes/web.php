@@ -51,6 +51,8 @@ Auth::routes();
     Route::resource('/sections', 'SectionsController');
     Route::resource('/partners', 'PartnersController');
     Route::resource('/contacts', 'ContactsController');
+    Route::resource('/menus', 'MenusController');
+    Route::resource('/menuLinks', 'MenuLinksController');
 
     });
 

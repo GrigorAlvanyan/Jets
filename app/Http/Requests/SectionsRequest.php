@@ -24,7 +24,12 @@ class SectionsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'page_id' => 'required|integer|exists:pages,id',
+            'image_id' => 'required|integer',
+            'youtube_id' => 'required|integer',
+            'position' => 'required|integer|min:1|max:1',
+            'title' => 'required|min:3|max:255',
+            'summary' => 'required',
         ];
     }
 }

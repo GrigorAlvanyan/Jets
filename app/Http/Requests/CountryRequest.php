@@ -24,7 +24,9 @@ class CountryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image_id' => 'required|integer',
+            'continent_id' => 'required|integer|exists:continents,id',
+            'title' => 'required|min:2|max:255',
         ];
     }
 }

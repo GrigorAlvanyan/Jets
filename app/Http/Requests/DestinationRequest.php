@@ -24,7 +24,16 @@ class DestinationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3|max:255',
+            'slug' => 'unique:destinations',
+            'show_on_home' => 'required|integer|min:1|max:1',
+            'is_top' => 'required|integer|min:1|max:1',
+            'summary' => 'required',
+            'body' => 'required',
+            'image_id' => 'required|integer',
+            'continent_id' => 'required|integer|exists:continents,id',
+            'country_id' => 'required|integer|exists:countries,id',
+
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContinentRequest extends FormRequest
+class MenuLinksRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class ContinentRequest extends FormRequest
     public function rules()
     {
         return [
-            'image_id' => 'required|integer',
-            'title' => 'required|min:3|max:255',
+            //
         ];
     }
 }

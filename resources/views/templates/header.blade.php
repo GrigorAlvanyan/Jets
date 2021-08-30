@@ -28,6 +28,7 @@
                 <div class="menu_inner">
                     <ul class="main_menu">
                         @foreach($menus->where('title','header') as $menu)
+{{--                            {{dd($menu->menuLinks)}}--}}
                             @foreach($menu->menuLinks as $link)
                                 @php($hasChildrens = isset($link->childrens) && count($link->childrens) > 0)
                                 <li>

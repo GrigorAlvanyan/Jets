@@ -79,6 +79,18 @@
                     </li>
                 </ul>
             </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menusLinks"></i><span class="menu-title text-truncate" data-i18n="Sections">Menu Links</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('menuLinks.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menus"></i><span class="menu-title text-truncate" data-i18n="Sections">Menus</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="{{route('menus.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="contacts"></i><span class="menu-title text-truncate" data-i18n="Sections">Contacts</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('contacts.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>

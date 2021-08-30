@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuLinks extends Model
 {
+    protected $guarded = [];
 
     public function menu()
     {

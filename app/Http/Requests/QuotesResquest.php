@@ -24,13 +24,13 @@ class QuotesResquest extends FormRequest
     public function rules()
     {
         return [
-//            'from' => '',
-//            'to' => '',
-//            'when' => '',
+            'from' => 'required|max:255',
+            'to' => 'required|max:255',
+            'when' => 'required|max:255',
 //            'time' => '',
-//            'passangers_count' => '',
-//            'adults' => '',
-//            'childrens' => '',
+            'passangers_count' => 'required|integer',
+            'adults' => 'required|integer',
+            'childrens' => 'required|integer',
         ];
     }
 }

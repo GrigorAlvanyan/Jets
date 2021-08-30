@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Contact;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ContactRequest;
+use App\Http\Requests\MenusRequest;
+use App\Menu;
+use App\MenuLinks;
 use Illuminate\Http\Request;
 
-class ContactsController extends AdminController
+class MenuLinksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,9 @@ class ContactsController extends AdminController
      */
     public function index()
     {
-        $contacts = Contact::get();
+        $menuLinks = MenuLinks::get();
 
-        return  view('admin.contacts.index', compact('contacts'));
+        return view('admin.menuLinks.index', compact('menuLinks'));
     }
 
     /**
@@ -28,7 +29,11 @@ class ContactsController extends AdminController
      */
     public function create()
     {
-        return view('admin.contacts.form');
+        $menus = Menu::get();
+
+        return view('admin.menuLinks.form', [
+            'menus' => $menus
+        ]);
     }
 
     /**
@@ -37,11 +42,11 @@ class ContactsController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(MenusRequest $request)
     {
-        $created = Contact::create($request->only('sex', 'name', 'email', 'messages', 'created_at'));
+        $created = MenuLinks::create($request->only('menu_id', 'parent_id', 'title', 'status', 'position', 'url'));
 
-        return redirect()->back()->with('message', 'Contact created');
+        return redirect()->back()->with('message', 'MenuLink created');
     }
 
     /**
@@ -61,9 +66,11 @@ class ContactsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(MenuLinks $menuLink)
     {
-        return view('admin.contacts.form');
+        $menus = Menu::get();
+
+        return view('admin.menuLInks.form', compact('menuLink', 'menus'));
     }
 
     /**
@@ -73,12 +80,12 @@ class ContactsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ContactRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $updated = Contact::where('id', '=', $id)->uptade($request->only('sex', 'name', 'email',
-            'messages', 'created_at'));
+        $updated = MenuLinks::where('id', '=', $id)->update($request->only('menu_id', 'parent_id', 'title',
+            'status', 'position', 'url'));
 
-        return redirect()->back()->with('message', 'Contact updated');
+        return  redirect()->back()->with('message', 'MenuLink updated');
     }
 
     /**
@@ -89,10 +96,10 @@ class ContactsController extends AdminController
      */
     public function destroy($id)
     {
-        $contact = Contact::find($id);
+        $menuLInk = MenuLinks::find($id);
 
-        $contact->delete();
+        $menuLInk->delete();
 
-        return redirect()->back()->with('message', 'Contact deleted');
+        return redirect()->back()->with('message', 'MenuLink deleted');
     }
 }
