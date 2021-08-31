@@ -20,7 +20,8 @@
             <h1 class="main_title">Request your next flight</h1>
             <div class="page_title">Contact <br /> information</div>
             <div class="inner_description">* Prices for a private jet flight start as low as 2,500€/hour up to 10,000€/hour, depending on your aircraft size.</div>
-            <form>
+            <form method="POST" action="{{route('contactInfo_request')}}">
+             @csrf
                 <div class="inner_form">
                     <div class="field_block standard_input">
                         <select class="ignore" name="name" data-validation="required">
@@ -46,7 +47,7 @@
                         <span class="error_hint">mandatory field</span>
                     </div>
                     <div class="field_block standard_input">
-                        <input type="text" name="name" placeholder="Last name" autocomplete="off" data-validation="required"/>
+                        <input type="text" name="last_name" placeholder="Last name" autocomplete="off" data-validation="required"/>
                         <span class="error_hint">mandatory field</span>
                     </div>
                     <div class="field_block standard_input">
@@ -57,12 +58,12 @@
 									</span>
                     </div>
                     <div class="field_block standard_input">
-                        <input type="tel" autocomplete="off" placeholder="Phone number" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                               class="telephone_block" data-validation="email"/>
+                        <input type="tel" autocomplete="off" placeholder="Phone number" name="phone_number" oninput="this.value=this.value.replace(/.+[^0-9]/g,'');"
+                               class="telephone_block" data-validation="tel" data-country="{{$countryCode}}"/>
                         <span class="error_hint">mandatory field</span>
                     </div>
                     <div class="field_block full_field">
-                        <textarea name="message" placeholder="Additional info" autocomplete="off" data-validation="required"></textarea>
+                        <textarea name="additional_info" placeholder="Additional info" autocomplete="off" data-validation="required"></textarea>
                         <span class="error_hint">mandatory field</span>
                     </div>
                     <button type="submit" class="validate_btn">CONFIRM</button>

@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 @if(!empty($contacts))
-                    <div class="map_block animation_block bottom_animation" data-coords="{{$contacts->latitude}}, {{$contacts->longitude}}}}">
+                    <div class="map_block animation_block bottom_animation" data-coords="{{$contacts->latitude}}, {{$contacts->longitude}}">
                         <div class="banner_inner">
                             <div id="map-canvas"></div>
                         </div>

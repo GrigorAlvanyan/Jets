@@ -10,8 +10,10 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "fideloper/proxy": "^4.4",
+        "giggsey/libphonenumber-for-php": "^8.12",
         "laravel/framework": "^6.20.26",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "stevebauman/location": "^6.2"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
@@ -38,6 +40,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

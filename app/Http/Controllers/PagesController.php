@@ -107,7 +107,6 @@ class PagesController extends Controller
             $q->with('childrens');
         }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
-//dd($menus);
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
         $pageSections = $page->sections;
 

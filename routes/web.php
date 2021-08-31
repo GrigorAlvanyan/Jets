@@ -25,7 +25,8 @@ Route::post('contact/submit', 'FormController@contactRequest')->name('contact_re
 
 Route::get('pages/{slug}', 'PagesController@getPage');
 
-
+Route::get('contact_info', 'ContactInfoController@contactInfo');
+Route::post('contact_info/submit', 'ContactInfoController@contactInformationSubmit')->name('contactInfo_request');
 
 
 

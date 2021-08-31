@@ -6,6 +6,8 @@ use App\Block;
 use App\BookJet;
 use App\Contact;
 use App\Destination;
+use App\Flight;
+use App\Http\Requests\ContactInformationRequest;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\QuotesResquest;
 use App\Http\Requests\SubscribeRequest;
@@ -78,5 +80,7 @@ class FormController extends Controller
         });
 
     }
+
+
 
 }

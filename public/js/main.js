@@ -7,8 +7,8 @@ function isTouchDevice() {
 
 function detectDevice() {
 	if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-		$('body').addClass('ios_device');       
-	};	 
+		$('body').addClass('ios_device');
+	};
 	if(isTouchDevice()) {
 		$('html').addClass('touch');
 	} else {
@@ -510,13 +510,14 @@ $(document).ready(function(){
 	changeCount('.decrease_btn', '.increase_btn', '.product_count input');
 
 	if ($('.telephone_block').length > 0) {
+	    var countryCode = $('.telephone_block').attr('data-country');
 		var input = document.querySelector(".telephone_block");
 		var tellval = window.intlTelInput(input, {
 			nationalMode: true,
 			hiddenInput: 'fullNumber',
 			separateDialCode: false,
 			utilsScript: 'js/intlInputPhone.min.js',
-			preferredCountries: ['am'],
+			preferredCountries: [countryCode],
 		});
 		var tellChange = function () {
 			if (tellval.isValidNumber()) {
@@ -646,7 +647,7 @@ $(document).ready(function(){
 
 $(window).on('load',function(){
 	$(window).resize(function(){
-		//detect content min height and show footer 
+		//detect content min height and show footer
 		detectContentHeight();
 
 	}).trigger('resize');

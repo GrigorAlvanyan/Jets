@@ -15,6 +15,9 @@
             @csrf
             <div class="field_block width_full icon_path1">
                 <label>
+                        <div>
+
+                        </div>
                     <span class="placeholder_input">FROM</span>
                     <input type="text" name="from" autocomplete="off"/>
                 </label>
