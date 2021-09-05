@@ -27,7 +27,7 @@ class ContactInformationRequest extends FormRequest
             'name' => 'required|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:flights',
-            'phone_number' => 'required|unique:flights',
+            'phone_number' => 'required|unique:flights,phone_number',
             'additional_info' => 'required',
         ];
     }

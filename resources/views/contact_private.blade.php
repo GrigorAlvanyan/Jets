@@ -19,14 +19,14 @@
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
     <script src="{{asset('js/slick.js')}}"></script>
 @endsection')}}
-@include('../templates/header')
+@include('templates/header')
 <div class="content">
     <div class="contact_info_page contact_private">
         <div class="custom_container">
             <h1 class="main_title">{{$page->title}}</h1>
             <div class="page_title">{!! $page->summary !!}</div>
             <div class="inner_description">{{$page->body}}</div>
-            @include('../form')
+            @include('form')
             @if(isset($pageSections) && count($pageSections) > 0)
                 @if($section1 = $pageSections->where('position', 1)->first())
                     <div class="bottom_block">
@@ -42,4 +42,4 @@
 <script src="js/main.js"></script>
 <script src="js/contact_info.js"></script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')

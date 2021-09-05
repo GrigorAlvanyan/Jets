@@ -18,7 +18,7 @@
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
     <script src="{{asset('js/jquery.nice-select.js')}}"></script>
 @endsection
-@include('../templates/header')
+@include('templates/header')
 
 <div class="content destinations_page">
     <div class="contents_scroll">
@@ -87,17 +87,7 @@
                         @endforelse
                     </ul>
 
-                        <div class="paging">
-                        <ul>
-                            <li><a href="" class="prev_page inactive">Back</a></li>
-                            <li><a href="total" class="current_page">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li>...</li>
-                            <li><a href="">5</a></li>
-                            <li><a href="" class="next_page">Next</a></li>
-                        </ul>
-                    </div>
+                    {{$destinations->links()}}
 
                 </div>
             </div>
@@ -118,4 +108,4 @@
         })
     </script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')

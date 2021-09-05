@@ -20,6 +20,7 @@
             <h1 class="main_title">Request your next flight</h1>
             <div class="page_title">Contact <br /> information</div>
             <div class="inner_description">* Prices for a private jet flight start as low as 2,500€/hour up to 10,000€/hour, depending on your aircraft size.</div>
+            @include('forms.messages')
             <form method="POST" action="{{route('contactInfo_request')}}">
              @csrf
                 <div class="inner_form">
@@ -58,7 +59,7 @@
 									</span>
                     </div>
                     <div class="field_block standard_input">
-                        <input type="tel" autocomplete="off" placeholder="Phone number" name="phone_number" oninput="this.value=this.value.replace(/.+[^0-9]/g,'');"
+                        <input type="tel" autocomplete="off" placeholder="Phone number" name="phone_number" oninput="this.value=this.value.replace(/[^[\+0-9]+/g,'');"
                                class="telephone_block" data-validation="tel" data-country="{{$countryCode}}"/>
                         <span class="error_hint">mandatory field</span>
                     </div>
@@ -71,7 +72,7 @@
                 </div>
             </form>
             <div class="bottom_block">
-                <a href="" class="standard_text icon_left">Back to home page</a>
+                <a href="/" class="standard_text icon_left">Back to home page</a>
                 <div class="standard_text">Need help?<a href="tel:+37491599000" class="phone_link">+374 91599000</a></div>
             </div>
         </div>

@@ -82,44 +82,27 @@
             <div class="custom_container animation_block fade_animation">
                 <div class="banner_inner">
                     <div class="inner_slider">
-                        <div class="inner_jets">
-                            <div class="info_jets">
-                                <div class="page_title">top jets</div>
-                                <div class="info_block">
-                                    <div class="page_description">
-                                        Nextant 400XT
+                        @if(isset($jets))
+                            @foreach($jets as $jet)
+                                <div class="inner_jets">
+                                    <div class="info_jets">
+                                        <div class="page_title">{{$jet->title}}</div>
+                                        <div class="info_block">
+                                            <div class="page_description">
+                                                Nextant 400XT
+                                            </div>
+                                            <div class="inner_description">
+                                                {{$jet->summary}}
+                                            </div>
+                                            <a href="{{route('show_jet', ['slug'=> $jet->slug])}}" class="see_more">SEE MORE</a>
+                                        </div>
                                     </div>
-                                    <div class="inner_description">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have
-                                        suffered alteration in some form, by injected humour, or randomised words
+                                    <div class="jets_image">
+                                        <img src="images/jets.png" alt="" title=""/>
                                     </div>
-                                    <a href="" class="see_more">SEE MORE</a>
                                 </div>
-                            </div>
-                            <div class="jets_image">
-                                <img src="images/jets.png" alt="" title=""/>
-                            </div>
-                        </div>
-                        <div class="inner_jets">
-                            <div class="info_jets">
-                                <div class="page_title">top jets</div>
-                                <div class="info_block">
-                                    <div class="page_description">
-                                        Nextant 400XT
-                                    </div>
-                                    <div class="inner_description">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have
-                                        suffered alteration in some form, by injected humour, or randomised words
-                                    </div>
-                                    <a href="" class="see_more">SEE MORE</a>
-                                </div>
-                            </div>
-                            <div class="jets_image">
-                                <img src="images/slider1.png" alt="" title=""/>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

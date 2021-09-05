@@ -8,7 +8,7 @@
     <script src="{{asset('js/slick.js')}}"></script>
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
 @endsection
-@include('../templates/header')
+@include('templates/header')
 <div class="content top_jets_inner">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
@@ -160,4 +160,4 @@
 @section('body-js')
     <script src="{{asset('js/main.js')}}"></script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')

@@ -1,1 +1,1 @@
-<link rel="icon" href="../css/images/favicons.png">
+<link rel="icon" href="{{asset('../css/images/favicons.png')}}">

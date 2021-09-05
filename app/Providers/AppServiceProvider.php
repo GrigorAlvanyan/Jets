@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Base;
+use App\Observers\HistoryObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //todo create new provider
+//        Base::observe(HistoryObserver::class);
     }
 }

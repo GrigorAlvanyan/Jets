@@ -46,8 +46,9 @@ class DestinationsController extends Controller
                 $destinations = $destinations->where(['continent_id' => $continent, 'country_id' => $country]);
             }
         }
-        $destinations = $destinations->paginate(9);
+        $destinations = $destinations->paginate(10);
 
+//        dd($destinations->currentPage());
 
         //        dd($destinations);
 
@@ -56,7 +57,7 @@ class DestinationsController extends Controller
 //        $destinations = DB::table('destinations')->where(['continent_id' => $continent, 'country_id' => $country])->paginate(6);
 
 
-        return view('pages/destinations', [
+        return view('destinations', [
             'menus' => $menus,
             'block' => $destBlock,
             'continents' => $continents,
@@ -83,7 +84,7 @@ class DestinationsController extends Controller
         $sliderDestinations = Destination::get();//todo
 
 
-        return view('pages/inner_destinations', compact('destinationBlock', 'destJets','sliderDestinations','menus'));
+        return view('inner_destinations', compact('destinationBlock', 'destJets','sliderDestinations','menus'));
     }
 
 }

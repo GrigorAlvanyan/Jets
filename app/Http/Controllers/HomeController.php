@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jet;
 use Illuminate\Support\Facades\Auth;
 use App\Block;
 use App\Destination;
@@ -33,7 +34,6 @@ class HomeController extends Controller
     public function index()
     {
 
-//        if (Auth::check()) {
 
 
         $menus = Menu::with(['menuLinks' => function ($q) {
@@ -46,10 +46,10 @@ class HomeController extends Controller
 
         $destinations = Destination::where('show_on_home', 1)->get();
 
-        return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations'));
-//        } else {
-//            return view('auth.login');
-//        }
+        $jets = Jet::where('is_top',1)->get();
+
+        return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations', 'jets'));
+
     }
 
 }

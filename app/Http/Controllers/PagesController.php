@@ -27,9 +27,6 @@ class PagesController extends Controller
             case 'privacy_policy':
                 return $this->privacyPolicy($slug);
                 break;
-            case 'contact_private':
-                return $this->contactPrivate($slug);
-                break;
             default:
                 //
                 break;
@@ -101,16 +98,5 @@ class PagesController extends Controller
         return view('pages/privacy_policy', compact( 'page', 'pageSections','menus'));
     }
 
-    public function contactPrivate($slug)
-    {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
-        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
-        $pageSections = $page->sections;
-
-        return view('pages/contact_private', compact( 'page','pageSections','menus'));
-    }
 
 }

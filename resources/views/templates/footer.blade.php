@@ -35,7 +35,9 @@
             </form>
             <div class="footer_menues">
                 <div class="footer_logo">
-                    <img src="../css/images/footer_logo.png" title="" alt=""/>
+                    <a href="/">
+                        <img src="../css/images/footer_logo.png" title="" alt=""/>
+                    </a>
                 </div>
                 @foreach($menus->where('title','footer') as $menu)
                     @foreach($menu->menuLinks->where('title','SITEMAP') as $link)

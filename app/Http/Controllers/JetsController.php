@@ -20,12 +20,12 @@ class JetsController extends Controller
             $q->with('childrens');
         }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
-        $topJets = Jet::where('is_top', 1)->paginate(2);
+        $topJets = Jet::paginate(10);
 
         $jetPage = DB::table('pages')->where('model', 'jet')->first();
 
 
-        return view('pages/top_jets', compact('topJets', 'jetPage', 'menus'));
+        return view('top_jets', compact('topJets', 'jetPage', 'menus'));
     }
 
     public function show($slug)
@@ -44,6 +44,6 @@ class JetsController extends Controller
 
 
 
-        return view('pages/inner_jets', compact('topJet', 'menus', 'destinations'));
+        return view('inner_jets', compact('topJet', 'menus', 'destinations'));
     }
 }

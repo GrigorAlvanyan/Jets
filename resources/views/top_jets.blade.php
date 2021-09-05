@@ -8,7 +8,7 @@
     <script src="{{asset('js/slick.js')}}"></script>
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
 @endsection
-@include('../templates/header')
+@include('templates/header')
 <div class="content top_jets_page">
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
@@ -56,17 +56,6 @@
                 </div>
 
                 {{ $topJets->links()}}
-                <div class="paging">
-                    <ul>
-                        <li><a href="" class="prev_page inactive">Back</a></li>
-                        <li><a href="" class="current_page">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li>...</li>
-                        <li><a href="">5</a></li>
-                        <li><a href="" class="next_page">Next</a></li>
-                    </ul>
-                </div>
 
             </div>
         </div>
@@ -76,4 +65,4 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/top_jets.js')}}"></script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')

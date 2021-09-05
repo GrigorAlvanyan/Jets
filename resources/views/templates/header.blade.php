@@ -19,10 +19,10 @@
     <div class="header_inner">
         <div class="custom_container">
             <div class="main_logo">
-                <?php if( strpos($_SERVER['SCRIPT_FILENAME'], 'index.php') == false):?> <a href="index.php"><?php endif?>
+                <a href="/">
                     <img class="logo_standard" src="../css/images/logo.png" alt="" title=""/>
                     <img class="one_logo" src="../css/images/footer_logo.png" alt="" title=""/>
-                    <?php if( strpos($_SERVER['SCRIPT_FILENAME'], 'index.php') == false):?> </a><?php endif?>
+                    <a/>
             </div>
             <div class="menu_block">
                 <div class="menu_inner">
@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            <a href="contact_private.php" class="book_btn">BOOK A JET</a>
+            <a href="{{route('contact_private')}}" class="book_btn">BOOK A JET</a>
             <button class="menu_btn"><span></span></button>
         </div>
     </div>

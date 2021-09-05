@@ -48,8 +48,7 @@ class ContactInfoController extends Controller
 
     public function contactInformationSubmit(ContactInformationRequest $request)
     {
-        dd($request);
-//        'regex:/^[a-zA-Z]+/';
+
         $data = $request->only('name', 'last_name', 'email', 'phone_number', 'additional_info');
 
         $country = countryByIp($request->ip());
