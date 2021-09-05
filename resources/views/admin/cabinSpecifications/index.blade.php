@@ -14,44 +14,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="/admin-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/vendors/css/vendors.min.css">
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/core/menu/menu-types/vertical-menu.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-    <!-- END: Custom CSS-->
+    @include('admin.main_styles.index.css')
 
 </head>
-<!-- END: Head-->
-
-<!-- BEGIN: Body-->
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-<!-- BEGIN: Header-->
 @include('admin.header')
-<!-- END: Header-->
-
-
-<!-- BEGIN: Main Menu-->
 @include('admin.sidebar')
-<!-- END: Main Menu-->
 
-<!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -128,12 +99,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Basic Tables end -->
 
         </div>
     </div>
 </div>
-<!-- END: Content-->
+
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
@@ -145,21 +115,7 @@
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->
 
-
-<!-- BEGIN: Vendor JS-->
-<script src="/admin-assets/vendors/js/vendors.min.js"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="/admin-assets/js/core/app-menu.js"></script>
-<script src="/admin-assets/js/core/app.js"></script>
-<!-- END: Theme JS-->
-
-<!-- BEGIN: Page JS-->
-<!-- END: Page JS-->
+@include('admin.main_styles.index.js')
 
 <script>
     $(window).on('load', function() {

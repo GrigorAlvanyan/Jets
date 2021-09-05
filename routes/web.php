@@ -60,6 +60,5 @@ Auth::routes();
 
 
 
-//Route::get('contacts', 'PagesController@contacts');
 
 

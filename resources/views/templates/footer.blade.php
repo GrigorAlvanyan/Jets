@@ -1,8 +1,4 @@
-{{--@foreach($menus->where('title','footer') as $menu)--}}
-{{--    @foreach($menu->menuLinks as $link)--}}
-{{--        {{dump($link->title)}}--}}
-{{--    @endforeach--}}
-{{--@endforeach--}}
+
 <div class="footer">
     <div class="footer_inner">
         <div class="custom_container">

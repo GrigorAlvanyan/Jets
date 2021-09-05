@@ -14,49 +14,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="/admin-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/vendors/css/extensions/toastr.min.css">
-    <!-- END: Vendor CSS-->
+    @include('admin.main_styles.forms.css')
 
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="/admin-assets/css/plugins/extensions/ext-component-toastr.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-    <!-- END: Custom CSS-->
 
 </head>
-<!-- END: Head-->
-
-<!-- BEGIN: Body-->
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-<!-- BEGIN: Header-->
 @include('admin.header')
-<!-- END: Header-->
-
-
-<!-- BEGIN: Main Menu-->
 @include('admin.sidebar')
-<!-- END: Main Menu-->
 
-<!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -153,24 +120,8 @@
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->
 
+@include('admin.main_styles.forms.js')
 
-<!-- BEGIN: Vendor JS-->
-<script src="/admin-assets/vendors/js/vendors.min.js"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="/admin-assets/vendors/js/charts/apexcharts.min.js"></script>
-<script src="/admin-assets/vendors/js/extensions/toastr.min.js"></script>
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="/admin-assets/js/core/app-menu.js"></script>
-<script src="/admin-assets/js/core/app.js"></script>
-<!-- END: Theme JS-->
-
-<!-- BEGIN: Page JS-->
-<script src="/admin-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
-<!-- END: Page JS-->
 
 <script>
     $(window).on('load', function() {
