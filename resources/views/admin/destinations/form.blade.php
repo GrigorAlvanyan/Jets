@@ -116,21 +116,6 @@
                                                        value="{{isset($destination) ? $destination->country_id : old('country_id')}}" />
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="created_at">Created at</label>
-                                                <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                       value="{{isset($destination) ? $destination->created_at : old('created_at')}}" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="model">Model</label>
-                                                <select class="form-control" id="model" name="model">
-                                                    <option selected default>Select</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary mr-1">Submit</button>
                                             <button type="reset" class="btn btn-outline-secondary">Reset</button>

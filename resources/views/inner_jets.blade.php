@@ -13,22 +13,21 @@
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
             <div class="banner_inner">
-                <div class="main_block">
-                    <div class="main_img">
-                        <img src="/images/hawker-beechcraft-750-aircraft-hero.png" title="" alt=""/>
-                    </div>
-                    <div class="custom_container">
-                        <div class="main_info">
-                            <div class="main_title">Hawker Beechcraft 750</div>
-                            <div class="inner_description">
-                                An upgrade of the older Hawker 700, the Hawker 750 also has more baggage space than its
-                                predecessor, the Hawker 800, with the ventral fuel tank being replaced by an externally
-                                accessible compartment, slightly reducing range. Deliveries of the Hawker 750 began in
-                                2008.
+                @if(isset($jet))
+                    <div class="main_block">
+                        <div class="main_img">
+                            <img src="/images/{{$jet->image_id}}.png" title="" alt=""/>
+                        </div>
+                        <div class="custom_container">
+                            <div class="main_info">
+                                <div class="main_title">{{$jet->title}}</div>
+                                <div class="inner_description">
+                                    {{$jet->summary}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
         <div class="jets_inner_block">

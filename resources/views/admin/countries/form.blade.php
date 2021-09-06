@@ -77,13 +77,6 @@
                                                                    value="{{isset($country) ? $country->title : old('title')}}" />
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="created_at">Created at</label>
-                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                                   value="{{isset($jet) ? $jet->created_at : old('created_at')}}" />
-                                                        </div>
-                                                    </div>
                                                     @if(isset($continents) && $continents->count())
                                                         <div class="col-md-6 col-12">
                                                             <div class="form-group">

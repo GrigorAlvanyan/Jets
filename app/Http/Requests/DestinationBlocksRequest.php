@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuotesResquest extends FormRequest
+class DestinationBlocksRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,11 @@ class QuotesResquest extends FormRequest
     public function rules()
     {
         return [
-//            'from' => 'required|max:255',
-            'to' => 'required|max:255',
-            'when' => 'required|max:255',
-//            'time' => '',
-            'passangers_count' => 'required|integer',
-            'adults' => 'required|integer',
-            'childrens' => 'required|integer',
+            'destination_id' => 'required|integer',
+            'image_id' => 'integer',
+            'title' => 'required|min:3|max:255',
+            'summary' => 'required',
+            'position' => 'required|integer',
         ];
     }
 }

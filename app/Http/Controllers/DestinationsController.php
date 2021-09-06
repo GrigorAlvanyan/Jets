@@ -63,15 +63,18 @@ class DestinationsController extends YourJetsController
 
         $dest = DB::table('destinations')->where('slug', $slug)->first();
 
+
         $destination = Destination::with(['destinationBlocks', 'jets'])->where('id', $dest->id)->firstOrFail();
 
         $destJets = $destination->jets;
         $destinationBlock = $destination->destinationBlocks;
 
-        $sliderDestinations = Destination::get();//todo
 
 
-        return view('inner_destinations', compact('destinationBlock', 'destJets','sliderDestinations'));
+        $sliderDestinations = Destination::get();
+
+
+        return view('inner_destinations', compact('destinationBlock', 'destJets','sliderDestinations', 'dest'));
     }
 
 }

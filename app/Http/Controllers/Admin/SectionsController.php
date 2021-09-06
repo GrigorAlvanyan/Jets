@@ -83,7 +83,7 @@ class SectionsController extends AdminController
      */
     public function update(SectionsRequest $request, $id)
     {
-        $created = PageSection::where('id', '=', $id)->update($request->only('page_id', 'image_id', 'youtube_id',
+        $updated = PageSection::where('id', '=', $id)->update($request->only('page_id', 'image_id', 'youtube_id',
             'position', 'title', 'summary','created_at'));
 
         return redirect()->back()->with('message', 'Section updated');

@@ -35,7 +35,8 @@ Route::get('contact_info', 'ContactInfoController@contactInfo');
 Route::post('contact_info/submit', 'ContactInfoController@contactInformationSubmit')->name('contactInfo_request');
 
 
-
+Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
+Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image_upload_post');
 
 
 Auth::routes();
@@ -60,6 +61,7 @@ Auth::routes();
     Route::resource('/contacts', 'ContactsController');
     Route::resource('/menus', 'MenusController');
     Route::resource('/menuLinks', 'MenuLinksController');
+    Route::resource('/destinationBlocks', 'DestinationBlocksController');
 
     });
 

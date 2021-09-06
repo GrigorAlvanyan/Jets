@@ -73,14 +73,6 @@
                                                 <textarea class="form-control" id="body" rows="3" placeholder="Body" name="body">{{isset($page) ? $page->body : old('body')}}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="model">Model</label>
-                                                <select class="form-control" id="model" name="model">
-                                                    <option selected default>Select</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary mr-1">Submit</button>
                                             <button type="reset" class="btn btn-outline-secondary">Reset</button>

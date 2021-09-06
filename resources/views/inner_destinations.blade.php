@@ -23,17 +23,19 @@
     <div class="contents_scroll">
         <div class="animation_block fade_animation">
             <div class="banner_inner">
-                <div class="main_block">
-                    <div class="main_img">
-                        <img src="/images/josie-josie-ybz7WB39uB4-unsplash.png" title="" alt=""/>
-                    </div>
-                    <div class="custom_container">
-                        <div class="main_info form_blocks">
-                            <div class="main_title">IBIZA</div>
+                @if(isset($dest))
+                    <div class="main_block">
+                        <div class="main_img">
+                            <img src="/images/image {{$dest->image_id}}.png" title="" alt=""/>
                         </div>
+                        <div class="custom_container">
+                            <div class="main_info form_blocks">
+                                <div class="main_title">{{ $dest->title }}</div>
+                            </div>
+                        </div>
+                        @include('form')
                     </div>
-                    @include('form')
-                </div>
+                @endif
             </div>
         </div>
         <div class="custom_container">

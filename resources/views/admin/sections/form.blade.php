@@ -48,14 +48,6 @@
                                                 @endif
                                                 @csrf
                                                 <div class="row">
-                                                    {{--                                        <div class="col-md-6 col-12">--}}
-                                                    {{--                                            <div class="form-group">--}}
-                                                    {{--                                                <label for="image">Image</label>--}}
-                                                    {{--                                                <input type="image" id="image" class="form-control" placeholder="Image" name="image"--}}
-                                                    {{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
-                                                    {{--                                            </div>--}}
-                                                    {{--                                        </div>--}}
-
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
                                                             <label for="page_id">Page Id</label>
@@ -95,13 +87,6 @@
                                                         <div class="form-group">
                                                             <label for="summary">Summary</label>
                                                             <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($section) ? $section->summary : old('summary')}}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="created_at">Created at</label>
-                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                                   value="{{isset($section) ? $section->created_at : old('created_at')}}" />
                                                         </div>
                                                     </div>
                                                     @if(isset($pages) && $pages->count())

@@ -26,6 +26,8 @@ class JetsController extends YourJetsController
     {
         $topJet = Jet::with('cabin')->where('slug', $slug)->firstOrFail();
 
-        return view('inner_jets', compact('topJet'));
+        $jet = Jet::where('slug', '=', $slug)->first();
+
+        return view('inner_jets', compact('topJet', 'jet'));
     }
 }

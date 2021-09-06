@@ -14,24 +14,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="/admin-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/vendors/css/vendors.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/vendors/css/charts/apexcharts.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/vendors/css/extensions/toastr.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/bootstrap-extended.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/colors.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/components.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/themes/dark-layout.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/themes/bordered-layout.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/themes/semi-dark-layout.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/pages/dashboard-ecommerce.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/plugins/charts/chart-apex.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin-assets/css/plugins/extensions/ext-component-toastr.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('../../../assets/css/style.css')}}">
+    @include('admin.main_styles.forms.css')
 
 </head>
-
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
@@ -50,48 +35,65 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Create continent</h4>
+                                <h4 class="card-title">Create sections</h4>
                             </div>
 
                             <div class="card-body">
                                 @include('forms.messages')
-                                @if(isset($continent))
-                                    <form class="form" method="POST" action="{{route('continents.update', ['continent'=>$continent->id])}}">
+                                @if(isset($destinationBlock))
+                                    <form class="form" method="POST" action="{{route('destinationBlocks.update', ['destinationBlock'=>$destinationBlock->id])}}">
                                         {{method_field('PUT')}}
                                         @else
-                                            <form class="form" method="POST" action="/admin/continents">
+                                            <form class="form" method="POST" action="/admin/destinationBlocks">
                                                 @endif
                                                 @csrf
                                                 <div class="row">
-                                                    {{--                                        <div class="col-md-6 col-12">--}}
-                                                    {{--                                            <div class="form-group">--}}
-                                                    {{--                                                <label for="image">Image</label>--}}
-                                                    {{--                                                <input type="image" id="image" class="form-control" placeholder="Image" name="image"--}}
-                                                    {{--                                                       value="{{isset($page) ? $page->title : old('title')}}" />--}}
-                                                    {{--                                            </div>--}}
-                                                    {{--                                        </div>--}}
-
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
-                                                            <label for="title">Title</label>
-                                                            <input type="text" id="title" class="form-control" placeholder="Title" name="title"
-                                                                   value="{{isset($continent) ? $continent->title : old('title')}}" />
+                                                            <label for="destination_id">Destination Id</label>
+                                                            <input type="text" id="destination_id" class="form-control" placeholder="Destination Id" name="destination_id"
+                                                                   value="{{isset($destinationBlock) ? $destinationBlock->destination_id : old('destination_id')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
                                                             <label for="image_id">Image Id</label>
                                                             <input type="text" id="image_id" class="form-control" placeholder="Image Id" name="image_id"
-                                                                   value="{{isset($continent) ? $continent->image_id : old('image_id')}}" />
+                                                                   value="{{isset($destinationBlock) ? $destinationBlock->image_id : old('image_id')}}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-12">
                                                         <div class="form-group">
-                                                            <label for="created_at">Created at</label>
-                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                                   value="{{isset($continent) ? $continent->created_at : old('created_at')}}" />
+                                                            <label for="title">Title</label>
+                                                            <input type="text" id="title" class="form-control" placeholder="Title" name="title"
+                                                                   value="{{isset($destinationBlock) ? $destinationBlock->title : old('title')}}" />
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="summary">Summary</label>
+                                                            <textarea class="form-control" id="summary" rows="3" placeholder="Summary" name="summary">{{isset($destinationBlock) ? $destinationBlock->summary : old('summary')}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label for="position">Position</label>
+                                                            <input type="text" id="position" class="form-control" placeholder="Position" name="position"
+                                                                   value="{{isset($destinationBlock) ? $destinationBlock->position : old('position')}}" />
+                                                        </div>
+                                                    </div>
+                                                    @if(isset($destinations) && $destinations->count())
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="form-group">
+                                                                <label for="model">Model</label>
+                                                                <select class="form-control" id="model" name="model">
+                                                                    @foreach($destinations as $destination)
+                                                                        <option value="{{$destination->id}}"{{isset($destinationBlock) && $destinationBlock->destination_id == $destination->id ? 'selected' : ''}}>{{$destination->title}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                     <div class="col-12">
                                                         <button type="submit" class="btn btn-primary mr-1">Submit</button>
                                                         <button type="reset" class="btn btn-outline-secondary">Reset</button>
@@ -117,6 +119,7 @@
     <p class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a class="ml-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-right d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
 </footer>
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+<!-- END: Footer-->
 
 @include('admin.main_styles.forms.js')
 

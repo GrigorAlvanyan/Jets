@@ -124,13 +124,6 @@
                                                                    value="{{isset($cabinSpecification) ? $cabinSpecification->speed : old('speed')}}" />
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="created_at">Created at</label>
-                                                            <input type="text" id="created_at" class="form-control" placeholder="Created at" name="created_at"
-                                                                   value="{{isset($cabinSpecification) ? $cabinSpecification->created_at : old('created_at')}}" />
-                                                        </div>
-                                                    </div>
                                                     @if(isset($jets) && $jets->count())
                                                         <div class="col-md-6 col-12">
                                                             <div class="form-group">
