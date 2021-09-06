@@ -13,7 +13,7 @@
     <script src="{{asset('js/jquery.nice-select.js')}}"></script>
     <script src="{{asset('https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAJIk0uOuhLnht2g6fYVM_L-tlrKKrxELE')}}"></script>
 @endsection
-@include('../templates/header')
+@include('templates/header')
 <div class="content">
     <div class="contents_scroll">
         <div class="contact_page">
@@ -106,4 +106,4 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/contact.js')}}"></script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')

@@ -137,21 +137,11 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="destinations_jets">
                 <div class="custom_container">
-                    <div class="page_title">TRENDING DESTINATIONS</div>
-                    <ul class="city_list">
-                        @forelse($destinations as $destination)
-                        <li>
-                            <div class="city_inner">
-                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="img_block"><img src="/images/image {{$destination->image_id}}.png" title="" alt=""/></a>
-                                <a href="{{route('show_destination', ['slug'=> $destination->slug])}}" class="destinations_name">{{$destination->title}}</a>
-                            </div>
-                        </li>
-                        @empty
-                        @endforelse
-                    </ul>
-                    <a href="" class="btn_view">BOOK A JET</a>
+                    <a href="{{route('books')}}" class="btn_view">BOOK A JET</a>
                 </div>
             </div>
         </div>

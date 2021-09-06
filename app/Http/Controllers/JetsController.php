@@ -12,38 +12,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class JetsController extends Controller
+class JetsController extends YourJetsController
 {
     public function index()
     {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
         $topJets = Jet::paginate(10);
-
         $jetPage = DB::table('pages')->where('model', 'jet')->first();
 
-
-        return view('top_jets', compact('topJets', 'jetPage', 'menus'));
+        return view('top_jets', compact('topJets', 'jetPage'));
     }
 
     public function show($slug)
     {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
         $topJet = Jet::with('cabin')->where('slug', $slug)->firstOrFail();
 
-        $destinations = DB::table('destinations')->where('image_id', '>', 0)->get();
-
-//        dd($destinations);
-//      $jetPage = DB::table('jets')->where('slug', $slug)->first();
-//      dd($jetPage);
-
-
-
-        return view('inner_jets', compact('topJet', 'menus', 'destinations'));
+        return view('inner_jets', compact('topJet'));
     }
 }

@@ -42,4 +42,4 @@
 <script src="js/main.js"></script>
 <script src="js/contact_info.js"></script>
 @endsection
-@include('templates/footer')
+{{--@include('templates/footer')--}}

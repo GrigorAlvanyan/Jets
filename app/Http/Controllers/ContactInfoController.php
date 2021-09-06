@@ -13,13 +13,10 @@ use libphonenumber\PhoneNumberUtil;
 use Stevebauman\Location\Facades\Location;
 
 
-class ContactInfoController extends Controller
+class ContactInfoController extends YourJetsController
 {
     public function contactInfo()
     {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
 
         $ip = \request()->ip();
 
@@ -28,7 +25,7 @@ class ContactInfoController extends Controller
         $countryCode = strtolower($countryCode);
 
 
-        return view('contact_info', compact('countryCode','menus'));
+        return view('contact_info', compact('countryCode'));
     }
 
     protected function checkPhoneNumber($phone, $country = 'AM')

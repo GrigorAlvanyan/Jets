@@ -25,7 +25,11 @@ Route::post('contact/submit', 'FormController@contactRequest')->name('contact_re
 
 Route::get('pages/{slug}', 'PagesController@getPage');
 
-Route::get('contact_private', 'ContactPrivateController@index')->name('contact_private');
+Route::get('contact', 'ContactController@index')->name('contact');
+
+Route::get('privacy-policy', 'PrivacyPolicyController@index')->name('privacy_policy');
+
+Route::get('books', 'ContactPrivateController@index')->name('books');
 
 Route::get('contact_info', 'ContactInfoController@contactInfo');
 Route::post('contact_info/submit', 'ContactInfoController@contactInformationSubmit')->name('contactInfo_request');

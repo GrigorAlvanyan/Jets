@@ -6,7 +6,7 @@
     <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
     <script src="{{asset('js/jquery.form-validator.js')}}"></script>
 @endsection
-@include('../templates/header')
+@include('templates/header')
 <div class="content">
     <div class="contents_scroll">
         <div class="privacy_policy">
@@ -40,5 +40,5 @@
 @section('body-js')
 <script src="{{asset('js/main.js')}}"></script>
 @endsection
-@include('../templates/footer')
+@include('templates/footer')
 

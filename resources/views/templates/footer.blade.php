@@ -57,8 +57,7 @@
                                     <div class="footer_title">{{$link->title}}</div>
                                     @if(isset($link->childrens) && $link->childrens->count())
                                             @foreach($link->childrens as $child)
-{{--                                                <a href="tel:{{$child->title}}" class="phone_link "> <span>Tel:</span> {{$child->title}}</a>--}}
-                                                <a href="tel:{{$child->title}}" class="phone_link "> {{$child->title}}</a>
+                                                <a href="{{$child->title}}" class="phone_link"> {{$child->title}}</a>
                                             @endforeach
                                     @endif
                                 </div>

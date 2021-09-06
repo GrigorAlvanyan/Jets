@@ -18,7 +18,7 @@ use App\Subscribe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class FormController extends Controller
+class FormController extends YourJetsController
 {
 
     public function requestQuotes(QuotesResquest $request)
@@ -26,8 +26,6 @@ class FormController extends Controller
         $data = $request->only('from', 'to', 'when', 'time', 'passangers_count','adults', 'childrens');
 
         $created = BookJet::create($data);
-
-//        $created = BookJet::create($request)->only('from', 'to', 'when', 'time', 'passangers_count','adults', 'childrens');
 
         if (!$created) {
             return redirect()->back()->with('message', 'error');

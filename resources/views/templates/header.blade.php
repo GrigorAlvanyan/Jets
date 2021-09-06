@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            <a href="{{route('contact_private')}}" class="book_btn">BOOK A JET</a>
+            <a href="{{route('books')}}" class="book_btn">BOOK A JET</a>
             <button class="menu_btn"><span></span></button>
         </div>
     </div>

@@ -13,17 +13,9 @@ use Illuminate\Http\Request;
 
 
 
-class HomeController extends Controller
+class HomeController extends YourJetsController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-//        $this->middleware('auth');
-    }
+
 
     /**
      * Show the application dashboard.
@@ -34,12 +26,6 @@ class HomeController extends Controller
     public function index()
     {
 
-
-
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
         $sliders = Slider::where('show_on_home', 1)->orderBy('position')->get();
 
         $homeBlocks = Block::where('show_on_home', 1)->get();
@@ -48,7 +34,7 @@ class HomeController extends Controller
 
         $jets = Jet::where('is_top',1)->get();
 
-        return view('home', compact('menus', 'sliders', 'homeBlocks', 'destinations', 'jets'));
+        return view('home', compact( 'sliders', 'homeBlocks', 'destinations', 'jets'));
 
     }
 

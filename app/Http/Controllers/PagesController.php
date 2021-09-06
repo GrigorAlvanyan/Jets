@@ -10,7 +10,7 @@ use App\Page;
 use App\Partner;
 use App\Statistics;
 
-class PagesController extends Controller
+class PagesController extends YourJetsController
 {
     public function getPage($slug)
     {
@@ -21,12 +21,6 @@ class PagesController extends Controller
             case 'why_your_jets':
                 return $this->whyYourJets($slug);
                 break;
-            case 'contact':
-                return $this->contact($slug);
-                break;
-            case 'privacy_policy':
-                return $this->privacyPolicy($slug);
-                break;
             default:
                 //
                 break;
@@ -36,24 +30,16 @@ class PagesController extends Controller
 
     public function ourCompany($slug)
     {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
         $pageSections = $page->sections;
 
         $partners = Partner::get();
 
-        return view('pages/our_company', compact('page', 'pageSections', 'menus', 'partners'));
+        return view('pages/our_company', compact('page', 'pageSections', 'partners'));
     }
 
     public function whyYourJets($slug)
     {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
         $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
         $pageSections = $page->sections;
 
@@ -64,39 +50,10 @@ class PagesController extends Controller
         $statistics = Statistics::get()->first();
 
         return view('pages/why_your_jets',
-            compact('page', 'pageSections', 'sliderDestinations', 'pageBlock1', 'pageBlock2', 'statistics', 'menus'));
-    }
-
-    public function contact($slug)
-    {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
-        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
-//        $pageSections = $page->sections;
-//
-
-
-        $contacts = Addresses::first();
-
-        return view('pages/contact', compact('page', 'contacts','menus'));
-
+            compact('page', 'pageSections', 'sliderDestinations', 'pageBlock1', 'pageBlock2', 'statistics'));
     }
 
 
-    public function privacyPolicy($slug)
-    {
-        $menus = Menu::with(['menuLinks' => function ($q) {
-            $q->with('childrens');
-        }])->where('title', 'header')->orWhere('title', 'footer')->get();
-
-//        dd($menus);
-        $page = Page::with('sections')->where('slug', $slug)->firstOrFail();
-        $pageSections = $page->sections;
-
-        return view('pages/privacy_policy', compact( 'page', 'pageSections','menus'));
-    }
 
 
 }

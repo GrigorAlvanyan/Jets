@@ -86,10 +86,10 @@
                             @foreach($jets as $jet)
                                 <div class="inner_jets">
                                     <div class="info_jets">
-                                        <div class="page_title">{{$jet->title}}</div>
+                                        <div class="page_title">TOP JETS</div>
                                         <div class="info_block">
                                             <div class="page_description">
-                                                Nextant 400XT
+                                                {{$jet->title}}
                                             </div>
                                             <div class="inner_description">
                                                 {{$jet->summary}}
