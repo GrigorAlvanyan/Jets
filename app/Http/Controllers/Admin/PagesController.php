@@ -5,11 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PageRequest;
 use App\Page;
+use App\Services\ImageUploadService;
 use Illuminate\Http\Request;
 
 //crud create, read, update, delete
 class PagesController extends AdminController
 {
+    protected $imageUploadService;
+
+    public function __construct(ImageUploadService $imageUploadService)
+    {
+        $this->imageUploadService = $imageUploadService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,6 +72,7 @@ class PagesController extends AdminController
      */
     public function edit(Page $page)
     {
+//        dd($page->files);
 //        $page = Page::find($id) ?? abort(404);
         return view('admin.pages.form', compact('page'));
     }
@@ -77,7 +86,14 @@ class PagesController extends AdminController
      */
     public function update(PageRequest $request, $id)
     {
-        $updated = Page::where('id','=', $id)->update($request->only('title', 'slug', 'summary', 'body', 'model'));
+        $data = $request->only('title', 'slug', 'summary', 'body', 'model');
+
+        if ($request->hasFile('images')) {
+            $uploadedImageId = $this->imageUploadService->imageUploadPost($request->images, 'pages');
+            $data['image_id'] = $uploadedImageId;
+        }
+
+        $updated = Page::where('id','=', $id)->update($data);
         return redirect()->back()->with('message', 'Page updated');
 
     }

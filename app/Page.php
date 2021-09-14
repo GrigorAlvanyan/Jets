@@ -17,6 +17,11 @@ class Page extends Model
         return $this->hasMany(PageSection::class);
     }
 
+    public function file()
+    {
+        return $this->hasOne(File::class, 'id', 'image_id');
+    }
+
 
 //
 //    public static function boot() {

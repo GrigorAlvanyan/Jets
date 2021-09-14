@@ -19,7 +19,8 @@
             <div class="banner_inner">
                 <div class="main_block">
                     <div class="main_img">
-                        <img src="/images/image 4.png" title="" alt=""/>
+{{--                        {{dd($page->file)}}--}}
+                        <img src="{{asset('images/pages/' . $page->file->name)}}" title="" alt=""/>
                     </div>
                     <div class="custom_container">
                         <div class="main_info">

@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 @include('forms.messages')
                                 @if(isset($page))
-                                    <form class="form" method="POST" action="{{route('pages.update', ['page'=>$page->id])}}">
+                                    <form class="form" method="POST" action="{{route('pages.update', ['page'=>$page->id])}}" enctype="multipart/form-data">
                                         {{method_field('PUT')}}
                                         @else
                                      <form class="form" method="POST" action="/admin/pages">
@@ -71,6 +71,12 @@
                                             <div class="form-group">
                                                 <label for="body">Body</label>
                                                 <textarea class="form-control" id="body" rows="3" placeholder="Body" name="body">{{isset($page) ? $page->body : old('body')}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-5">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="images[]" multiple>
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
